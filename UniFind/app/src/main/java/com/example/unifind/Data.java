@@ -24,7 +24,5 @@ import android.app.Activity;
 
 
 public class Data extends Activity{
-//    private ArrayList<University> universities;
-//    private String[] universityFileNames;
 
 }
