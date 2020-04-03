@@ -1,0 +1,68 @@
+﻿Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Accounting,70,8088,24330,"ENG4U,MHF4U/MCV4U",No,N/A,No
+Allied Health Sciences-Bridge,70,5982,21935,N/A,No,N/A,Yes
+Applied and Industrial Mathematics,70,5982,21935,"ENG4U,MFH4U,Two of SBI4U/MCV4U/SCH4U/SPH4U",Yes,N/A,No
+Astrophysics,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U,MCV4U,SCH4U,SPH4U",No,N/A,No
+Automotive Engineering,75,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Biological Science,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U/SPH4U/MCV4U",Yes,N/A,No
+Biological science-Advanced Entry,75,5982,21935,N/A,Yes,N/A,Yes
+Chemical Biology,70,5982,21935,"ENG4U,MHF4U,Two of MCV4U/SCH4U/SPH4U",No,N/A,No
+Chemistry,72,5982,21935,"ENG4U,MHF4U,Two of SBI4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Commerce,70,8088,24330,"ENG4U,One of MHF4U/MCV4U/MDM4U",Yes,N/A,No
+Commerce-Advanced Entry,75,8088,24330,N/A,Yes,N/A,Yes
+Commerce-Bridge,75,8088,24330,N/A,Yes,N/A,Yes
+Communication and Digital Media Studies,70,5982,21935,ENG4U,No,N/A,No
+Communication and Digital Media Studies-Advanced Entry,70,5982,21935,N/A,No,N/A,Yes
+Communication and Digital Media Studies-GAS,77,5982,21935,N/A,No,N/A,Yes
+Comprehensive Engineering,75,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",No,N/A,No
+Computer Science,82,6339,23244,"ENG4U,MHF4U,One of MCV4U/SPH4U/ICS4U",Yes,N/A,No
+Computer Science-Advanced Entry,75,6339,23244,N/A,Yes,N/A,Yes
+Concurrent Education,85,5982,21935,N/A,No,N/A,Yes
+Criminoloty and Justice,70,5982,21935,ENG4U,No,N/A,No
+Criminology and Justice-Advanced Entry,70,5982,21935,N/A,No,N/A,Yes
+Criminology and Justice-GAS,70,5982,21935,N/A,No,N/A,Yes
+Data Science,82,5982,21935,"ENG4U,MHF4U,One of MCV4U/SPH4U/ICS4U",Yes,N/A,No
+Designing Adult Learning for the Digital Age-Undergraduate Diploma,70,5982,21935,N/A,No,N/A,Yes
+Educatoinal Studies and Digital Technology-Advanced Entry,70,5982,21935,N/A,No,N/A,Yes
+Electrial Engineering,75,9390,28608,"ENG4U,MHF4U,MCV4U,SSH4U,SPH4U",Yes,N/A,No
+Environmental Biology,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U,MCV4U,SCH4U,SPH4U",No,N/A,No
+Finance,70,8088,24330,"ENG4U,One of MHF4U/MCV4U/MDM4U",No,N/A,No
+Forensic Psychology,70,5982,21935,"ENG4U,SBI4U,One of MHF4U/MCV4U/MDM4U",No,N/A,No
+Forensic Psychology-GAS,70,5982,21935,N/A,No,N/A,Yes
+Forensic Science,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U/SPH4U/MCV4U/SCH4U",No,N/A,No
+Health Physics and Radiation Science,70,5982,21935,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Health Sciences,70,5982,21935,"ENG4U,SBI4U,One of MHF4U/MCV4U/MDM4U",No,N/A,No
+Information Technology-Game Development and Entrepreneurship,75,9031,25400,"ENG4U,MHF4U,MCV4U/MDM4U/ICS4U",Yes,N/A,No
+Information Technology-Game Development and Entrepreneurship-Bridge,70,9031,25400,N/A,Yes,N/A,Yes
+Information Technoloty-Networking and Information Technology Security,75,9031,25400,"ENG4U,One of MHF4U/MCV4U/MDM4U/ICS4U",Yes,N/A,No
+Information Technology Security-Bridge,70,9031,25400,N/A,No,N/A,Yes
+Information Technology-Technology Management,75,9031,25400,"ENG4U,One of MHF4U/MCV$U/MDM4U/ICS4U",No,N/A,No
+Integrative Neuroscience,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U,MCV4U,SCH4U,SPH4U",No,N/A,No
+Kinesiology,73,5982,21935,"ENG4U,SBI4U,One of SCH4U/MCV4U/MDM4U",No,N/A,No
+Kinesiology Advanced Entry-Fitness and Health Promotion,74,5982,21935,SBI4U,No,N/A,Yes
+Kinesiology Advanced Entry-OTA and PTA,74,5982,21935,SBI4U,No,N/A,Yes
+Legal Studies,70,5982,21935,ENG4U,No,N/A,No
+Legal Studies-Advanced Entry,70,5982,21935,N/A,No,N/A,Yes
+Legal Studies-GAS,70,5982,21935,N/A,No,N/A,Yes
+Liveral Studies,70,5982,21935,ENG4U,No,N/A,No
+Life Sciences,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U/MCV4U/SCH4U/SPH4U",Yes,N/A,No
+Manufacturing Engineering,75,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Marketing,70,8088,24330,"ENG4U,One of MHF4U/MCV4U/MDM4U",No,N/A,No
+Mechanical Engineering,78,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",No,N/A,No
+Mechatronic Engineering,75,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",No,N/A,No
+Medical Laboratory Science,80,5982,21935,"ENG4U,SBI4U,SCH4U,MHF4U/MCV4U",No,N/A,No
+Nanotechnology and Clean Energy,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U/MCV4U/SCH4U/SPH4U",No,N/A,No
+Networking and Information Technology Security-Advanced Entry,75,9031,25400,N/A,No,N/A,Yes
+Nuclear Engineering,70,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Nursing-Collaborative,85,6100,22367,"ENG4U,SBI4U,SCH4U,MHF4U/MCV4U/MDM4U",No,N/A,No
+Nursing-Post RPN,85,6100,22367,N/A,No,N/A,Yes
+Organizational Behaviour and Human Resources Management,70,8088,22367,"ENG4U,MHF4U/MCV4U/MDM4U",No,N/A,No
+Pharmaceutical Chemistry,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U/MCV4U/SCH4U/SPH4U",Yes,N/A,No
+Physics,70,5982,21935,"ENG4U,MHF4U,Two of SBI4U/MCV4U/SCH4U/SPH5U",Yes,N/A,No
+Political Science,70,5982,21935,ENG4U,No,N/A,No
+Psychology(Bachelor of Arts),70,5982,21935,"ENG4U,SBI4U,MHF4U/MCV4U/MDM4U",No,N/A,No
+Psychology(Bachelor of Science),70,5982,21935,"ENG4U,SBI4U,MHF4U/MCV4U/MDM5U",No,N/A,No
+Software Engineering,75,9390,28608,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Sustanable Energy Systems,70,5982,21935,"ENG4U,MHF4U,SBI4U/MCV4U/SCH4U/SPH4U",No,N/A,No
+Teaching English to Speakers of Other Languages,70,5982,21935,N/A,No,N/A,Yes
+Technology Management(Bachelor of Commerce),70,8088,22367,"ENG4U,MHF4U/MCV4U/MDM4U",No,N/A,No
