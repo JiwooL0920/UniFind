@@ -14,13 +14,13 @@ public class University {
     }
 
     //Getter for name
-    public String name() { return this.name; }
+    public String getName() { return this.name; }
 
     //Getter for programs
-    public ArrayList<Program> programs() { return this.programs; }
+    public ArrayList<Program> getPrograms() { return this.programs; }
 
     //Getter for ranking
-    public int ranking() { return this.ranking; }
+    public int getRanking() { return this.ranking; }
 
     //Setter for ranking
     public void setRanking(int n) { this.ranking = n; }
@@ -31,15 +31,15 @@ public class University {
     //return true if program exists in university
     public boolean hasProgram(String name) {
         for (Program p : this.programs) {
-            if (p.name().equals(name)) return true;
+            if (p.getName().equals(name)) return true;
         } return false;
     }
 
     //return program in the arraylist given name
-    public Program getProgram(String name) {
+    public Program getPrograms(String name) {
         if (!hasProgram(name)) return null;
         for (Program p : this.programs) {
-            if (p.name().equals(name)) return p;
+            if (p.getName().equals(name)) return p;
         }
     }
 
