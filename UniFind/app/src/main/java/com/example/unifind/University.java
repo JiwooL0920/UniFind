@@ -29,18 +29,18 @@ public class University {
     public void addProgram(Program p) { this.programs.add(p); }
 
     //return true if program exists in university
-    public boolean hasProgram(String name) {
-        for (Program p : this.programs) {
-            if (p.getName().equals(name)) return true;
-        } return false;
-    }
+//    public boolean hasProgram(String name) {
+//        for (Program p : this.programs) {
+//            if (p.getName().equals(name)) return true;
+//        } return false;
+//    }
 
     //return program in the arraylist given name
-    public Program getPrograms(String name) {
-        if (!hasProgram(name)) return null;
-        for (Program p : this.programs) {
-            if (p.getName().equals(name)) return p;
-        }
-    }
+//    public Program getPrograms(String name) {
+//        if (!hasProgram(name)) return null;
+//        for (Program p : this.programs) {
+//            if (p.getName().equals(name)) return p;
+//        }
+//    }
 
 }
