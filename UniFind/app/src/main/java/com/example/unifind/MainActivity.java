@@ -20,25 +20,28 @@ import android.widget.Button;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
     public String[] universityFileNames;
     public ArrayList<University> universities;
     HashMap<String,String> universityNameConversion;
+    private HashMap<String,String> ranking;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.universityFileNames = new String[] {"algoma", "brock", "carleton",
-                                                "guelph", "hearst", "lakehead",
-                                                "laurentian", "mcmaster", "nipissing",
-                                                "ocad", "uoit", "ottawa",
-                                                "queens", "ryerson", "trent",
-                                                "uoft", "waterloo", "western",
+                "guelph", "hearst", "lakehead",
+                "laurentian", "mcmaster", "nipissing",
+                "ocad", "uoit", "ottawa",
+                "queens", "ryerson", "trent",
+                "uoft", "waterloo", "western",
 //                                                "wilfred_laurier",
-                                                "windsor", "york"};
+                "windsor", "york"};
 
         //This one works??? this doesnt work yyyyy?
         this.universityNameConversion = new HashMap<String,String>();
@@ -79,32 +82,32 @@ public class MainActivity extends AppCompatActivity {
     //Get University data from CSV
     public void getUniversityData() {
 //        Log.i("myapp","reached2");
-            final String dir = System.getProperty("user.dir");
-            for (String name : this.universityFileNames) {
-                InputStream ins = getResources().openRawResource(getResources().getIdentifier(name,"raw",getPackageName()));
-                Scanner scanner = new Scanner(ins);
-                String header = scanner.nextLine(); //get rid of header
-                TextView text = (TextView) findViewById(R.id.text);
+        final String dir = System.getProperty("user.dir");
+        for (String name : this.universityFileNames) {
+            InputStream ins = getResources().openRawResource(getResources().getIdentifier(name,"raw",getPackageName()));
+            Scanner scanner = new Scanner(ins);
+            String header = scanner.nextLine(); //get rid of header
+            TextView text = (TextView) findViewById(R.id.text);
 //                Log.i("myapp",name);
-                //retrieve data
-                University university = new University(name);
+            //retrieve data
+            University university = new University(name);
 //                Log.i("myapp",name);
-                while (scanner.hasNextLine()) {
-                    String s = scanner.nextLine();
-                    String[] cells = s.split(",");
+            while (scanner.hasNextLine()) {
+                String s = scanner.nextLine();
+                String[] cells = s.split(",");
 //                    Log.i("myapp",cells[0]);
-                    Program p = new Program(cells[0],                       //name
-                                            cells[1],                       //Admission Average
-                                            Integer.parseInt(cells[2]),     //local tuition
-                                            Integer.parseInt(cells[3]),     //international tuition
-                                            cells[4],                       //requirement
-                                            yesNoConversion(cells[5]),      //coop
-                                            cells[6],                       //target enrolment
-                                            yesNoConversion(cells[7]));     //supplementary application
-                    university.addProgram(p);
-                }
-                universities.add(university);
+                Program p = new Program(cells[0],                       //name
+                        cells[1],                       //Admission Average
+                        Integer.parseInt(cells[2]),     //local tuition
+                        Integer.parseInt(cells[3]),     //international tuition
+                        cells[4],                       //requirement
+                        yesNoConversion(cells[5]),      //coop
+                        cells[6],                       //target enrolment
+                        yesNoConversion(cells[7]));     //supplementary application
+                university.addProgram(p);
             }
+            universities.add(university);
+        }
         //check in log
         Log.i("myapp","finalresult====================================");
         for (University u : universities) {
@@ -124,6 +127,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public void getUniversityRanking() {
+        InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
+        Scanner scanner = new Scanner(ins);
+        scanner.nextLine();
+        while (scanner.hasNext()) {
+            String[] line = scanner.nextLine().split(",");
+            ranking.put(line[0], line[1]);
+        }
+        scanner.close();
+        Set<String> uni = ranking.keySet();
+        for (String u : universityFileNames) {
+            for (String U : uni) {
+                if (U.toLowerCase().contains(u)) {
+                    String x = ranking.get(U);
+                    if (!x.equals("N/A")) {
+                        int y = Integer.parseInt(x);
+                        for (University z : universities)
+                            if (z.getName().equals(u))
+                                z.setRanking(y);
+                    }
+                }
+            }
+        }
+    }
     //Get ranking data
+
 
 }
