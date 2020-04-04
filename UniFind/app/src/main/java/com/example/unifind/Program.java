@@ -3,12 +3,15 @@ package com.example.unifind;
 public class Program {
     protected String name;
     protected String admission_average;
+
     protected int local_tuition;
     protected int international_tuition;
+
     protected String requirements;
     protected boolean coop;
     protected String target_enrolment;
     protected boolean supplementary_applicatoin;
+
 
     public Program(String p, String a, int lt, int it, String r, boolean c, String t, boolean s) {
         name = p;
