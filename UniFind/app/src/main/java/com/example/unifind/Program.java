@@ -2,15 +2,15 @@ package com.example.unifind;
 
 public class Program {
     protected String name;
-    protected double admission_average;
-    protected double local_tuition;
-    protected double international_tuition;
+    protected String admission_average;
+    protected int local_tuition;
+    protected int international_tuition;
     protected String requirements;
     protected boolean coop;
     protected String target_enrolment;
     protected boolean supplementary_applicatoin;
 
-    public Program(String p, double a, double lt, double it, String r, boolean c, String t, boolean s) {
+    public Program(String p, String a, int lt, int it, String r, boolean c, String t, boolean s) {
         name = p;
         admission_average = a;
         local_tuition = lt;
@@ -29,27 +29,27 @@ public class Program {
         this.name = name;
     }
 
-    public double getAdmission_average() {
+    public String getAdmission_average() {
         return admission_average;
     }
 
-    public void setAdmission_average(double admission_average) {
+    public void setAdmission_average(String admission_average) {
         this.admission_average = admission_average;
     }
 
-    public double getLocal_tuition() {
+    public int getLocal_tuition() {
         return local_tuition;
     }
 
-    public void setLocal_tuition(double local_tuition) {
+    public void setLocal_tuition(int local_tuition) {
         this.local_tuition = local_tuition;
     }
 
-    public double getInternational_tuition() {
+    public int getInternational_tuition() {
         return international_tuition;
     }
 
-    public void setInternational_tuition(double international_tuition) {
+    public void setInternational_tuition(int international_tuition) {
         this.international_tuition = international_tuition;
     }
 
