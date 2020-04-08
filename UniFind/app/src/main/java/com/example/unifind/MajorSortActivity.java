@@ -18,7 +18,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
-public class activity_major_sort extends AppCompatActivity {
+import android.util.Log;
+
+public class MajorSortActivity extends AppCompatActivity {
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
@@ -50,6 +52,10 @@ public class activity_major_sort extends AppCompatActivity {
         this.universities = new ArrayList<University>();
         this.rankingList = new HashMap<String,String>();
         this.boolList = new ArrayList<String>();
+
+        //Retrieved data (what major) passed from MajorActivity
+        String major = getIntent().getStringExtra("Major");
+        Log.i("myapp",major);
     }
 
     //get data

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity_major_sort"
+            android:name=".MajorSortActivity"
             android:label="@string/title_activity_major_sort"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MajorActivity" />
