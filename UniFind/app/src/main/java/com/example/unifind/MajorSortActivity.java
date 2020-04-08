@@ -117,10 +117,21 @@ public class MajorSortActivity extends AppCompatActivity {
         //Loop through this and make hashmap
         int count = 1;
         for (University u : sorted) {
+            //Get University name
             String universityName = this.universityNameConversion.get(u.getName());
             listGroup.add(count+") "+universityName);
+
+            //Get program Info
+            Program p = u.getProgram(this.major);
             List<String> programInfo = new ArrayList<>(); //get back
-            programInfo.add("hi");
+            programInfo.add("Program name: \n" + p.getName());
+            programInfo.add("Admission Average: \n" + p.getAdmission_average());
+            programInfo.add("Domestic Tuition: \n" + p.getLocal_tuition());
+            programInfo.add("International Tuition: \n" + p.getInternational_tuition());
+            programInfo.add("Requirements: \n" + p.getRequirements());
+            programInfo.add("Coop: \n" + p.isCoop());
+            programInfo.add("Target Enrolment: \n" + p.getTarget_enrolment());
+            programInfo.add("Supplementary Application: \n" + p.isSupplementary_applicatoin());
             listItem.put(count+") "+universityName,programInfo);
             count++;
         }
