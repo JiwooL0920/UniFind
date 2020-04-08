@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
-    ArrayList<Program> filterList;
+    private ArrayList<String> boolList;
 
 
     private final String[] categories = new String[] {"admission_average",              // 0
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.universities = new ArrayList<University>();
-        this.filterList = new ArrayList<>();
+        this.boolList = new ArrayList<>();
         this.rankingList = new HashMap<String,String>();
 
 
@@ -81,12 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                Log.i("myapp","carleton---------------------------------------------------------------------------------------");
-                coopOrSupFilter("carleton");
-                for (Program p : filterList) {
-                    Log.i("myapp",p.getName());
-                }
-
             }
         });
 
@@ -103,11 +97,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                Log.i("myapp","carleton---------------------------------------------------------------------------------------");
-                coopOrSupFilter("carleton");
-                for (Program p : filterList) {
-                    Log.i("myapp",p.getName());
+                Log.i("myapp","--------coop-------------------------------------------------------------------------------");
+                booleanFilter("Computer Science", "coop");
+                for (String p : boolList) {
+                    Log.i("myapp",p);
                 }
+
                 openMajor();
             }
         });
@@ -184,12 +179,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void coopOrSupFilter(String universityName) {
+    public void booleanFilter(String programName, String category) {
         for (University u : universities) {
-            if (universityName.equals(u.getName())) {
-                for (Program p : u.getPrograms()) {
-                    if (p.isCoop() == true) {
-                        filterList.add(p);
+            for (Program p : u.getPrograms()) {
+                if (p.getName().contains(programName)) {
+                    if (category.equals("coop")) {
+                        if (p.isCoop()) {
+                            if (!boolList.contains(u.getName()))
+                                boolList.add(u.getName());
+                        }
+                    }
+                    if (category.equals("supplementary_application")) {
+                        if (p.isSupplementary_applicatoin()) {
+                            if (!boolList.contains(u.getName()))
+                                boolList.add(u.getName());
+                        }
                     }
                 }
             }
