@@ -30,6 +30,7 @@ public class MajorSortActivity extends AppCompatActivity {
     private ArrayList<String> boolList;
     private String[] categories;
     private HashMap<String,String> universityNameConversion;
+    private String major;
 
     //Expandable view
     ExpandableListView expandableListView;
@@ -70,7 +71,7 @@ public class MajorSortActivity extends AppCompatActivity {
         this.universityNameConversion.put("carleton","Carleton University");
         this.universityNameConversion.put("guelph","University of Guelph");
         this.universityNameConversion.put("hearst","Université de Hearst");
-        this.universityNameConversion.put("leakehead","Lakehead University");
+        this.universityNameConversion.put("lakehead","Lakehead University");
         this.universityNameConversion.put("laurentian","Laurentian University");
         this.universityNameConversion.put("mcmaster","McMaster University");
         this.universityNameConversion.put("nipissing","Nipissing University");
@@ -91,41 +92,36 @@ public class MajorSortActivity extends AppCompatActivity {
         this.rankingList = new HashMap<>();
         this.boolList = new ArrayList<>();
 
-        //Expandable view
+        //Get Data
         getData();
 
-        expandableListView = findViewById(R.id.activity_major_sort);
+        //Retrieved data (what major) passed from MajorActivity
+        this.major = getIntent().getStringExtra("Major");
+        Log.i("myapp",this.major);
 
+        //Expandable View
+        expandableListView = findViewById(R.id.activity_major_sort);
         this.listGroup = new ArrayList<>();
         this.listItem = new HashMap<>();
-
-
         this.adaptor = new MainAdaptor(this,listGroup,listItem);
         expandableListView.setAdapter(adaptor);
         getListViewData();
-
-
-
 
     }
 
     //Get listView
     public void getListViewData() {
-        //Retrieved data (what major) passed from MajorActivity
-        String major = getIntent().getStringExtra("Major");
-        Log.i("myapp",major);
-
         //Get major data
         University[] sorted = getProgramBasedOnCategory(major,"admission_average");
-        Log.i("myapp","sorted:"+Arrays.toString(sorted));
 
         //Loop through this and make hashmap
         int count = 1;
         for (University u : sorted) {
-            listGroup.add(count+") "+u.getName());
+            String universityName = this.universityNameConversion.get(u.getName());
+            listGroup.add(count+") "+universityName);
             List<String> programInfo = new ArrayList<>(); //get back
             programInfo.add("hi");
-            listItem.put(count+") "+u.getName(),programInfo);
+            listItem.put(count+") "+universityName,programInfo);
             count++;
         }
 
@@ -146,12 +142,10 @@ public class MajorSortActivity extends AppCompatActivity {
 
     //Get University data from CSV
     public void getUniversityData() {
-        final String dir = System.getProperty("user.dir");
         for (String name : this.universityFileNames) {
             InputStream ins = getResources().openRawResource(getResources().getIdentifier(name,"raw",getPackageName()));
             Scanner scanner = new Scanner(ins);
             String header = scanner.nextLine(); //get rid of header
-            TextView text = (TextView) findViewById(R.id.text);
             //retrieve data
             University university = new University(name);
             while (scanner.hasNextLine()) {
