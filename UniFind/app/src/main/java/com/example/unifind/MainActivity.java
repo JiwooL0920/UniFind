@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     public String[] universityFileNames;
     public ArrayList<University> universities;
-    private HashMap<String,String> ranking;
+    private HashMap<String,String> rankingList;
+    ArrayList<Program> filterList;
 
     private final String[] categories = new String[] {"admission_average",              // 0
                                                       "local_tuition",                  // 1
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         this.universities = new ArrayList<University>();
+        this.filterList = new ArrayList<>();
+        this.rankingList = new HashMap<String,String>();
 
         Button b =  (Button) findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
@@ -49,10 +52,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 getData();
-                Log.i("myapp","got data-------------------------------------------------------------");
+
+                Log.i("myapp","sort computer science on admission average-----------------------------------------------------");
                 University[] sortResult = getProgramBasedOnCategory("Computer Science","admission_average");
                 for (University s : sortResult) {
                     Log.i("sort",s.getName());
+                }
+
+
+                Log.i("myapp","carleton---------------------------------------------------------------------------------------");
+                coopOrSupFilter("carleton");
+                for (Program p : filterList) {
+                    Log.i("myapp",p.getName());
                 }
 
             }
@@ -62,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     //get data
     public void getData() {
         getUniversityData();
-//        getUniversityRanking();
+        getUniversityRanking();
     }
 
     //Get University data from CSV
@@ -105,21 +116,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //TODO [Jennie]: update university's ranking field
     public void getUniversityRanking() {
         InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
         Scanner scanner = new Scanner(ins);
         scanner.nextLine();
         while (scanner.hasNext()) {
             String[] line = scanner.nextLine().split(",");
-            ranking.put(line[0], line[1]);
+            rankingList.put(line[0], line[1]);
         }
         scanner.close();
-        Set<String> uni = ranking.keySet();
+        Set<String> uni = rankingList.keySet();
         for (String u : universityFileNames) {
             for (String U : uni) {
                 if (U.toLowerCase().contains(u)) {
-                    String x = ranking.get(U);
+                    String x = rankingList.get(U);
                     if (!x.equals("N/A")) {
                         int y = Integer.parseInt(x);
                         for (University z : universities)
@@ -129,7 +139,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
 
+    public void coopOrSupFilter(String universityName) {
+        for (University u : universities) {
+            if (universityName.equals(u.getName())) {
+                for (Program p : u.getPrograms()) {
+                    if (p.isCoop() == true) {
+                        filterList.add(p);
+                    }
+                }
+            }
+        }
     }
 
 
