@@ -1,0 +1,18 @@
+Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Art,70,6937,19323,ENG4U/EAE4U/NBE4U,No,Open enrolment,No
+Biology,79,7571,19323,"ENG4U/EAE4U/NBE4U, SBI4U,SCH4U, one of MCV4U/MHF4U",No,Open enrolment,No
+Business,79,7571,19323,"ENG4U/EAE4U/NBE4U,Two 4U maths recommended",Yes,Open enrolment,No
+Chemistry,79,7571,19323,Two 4U maths recommended,No,Open enrolment,No
+Commerce,70,8731,19323,ENG4U/EAE4U/NBE4U,No,Open enrolment,No
+Computer Science,79,8731,19323,"ENG4U/EAE4U/NBE4U, MCV4U, one other 4U math, one of SBI4U/SCH4U/SPH4U",No,Open enrolment,No
+Criminal Justice,75,7571,19323,ENG4U/EAE4U/NBE4U,No,Open enrolment,No
+Education,75,6621,19323,ENG4U/EAE4U/NBE4U,Yes,Open enrolment,No
+Environment,79,7571,19323,"ENG4U/EAE4U/NBE4U, 4U math, one of SCH4U/SPH4U",No,Open enrolment,No
+History,80,7571,19323,ENG4U/EAE4U/NBE4U,No,Open enrolment,No
+Liberal Science,70,7571,19323,"ENG4U/EAE4U/NBE4U, two of SCH4U/SPH4U/4U math",No,Open enrolment,No
+Mathematics,70,7571,19323,"ENG4U/EAE4U/NBE4U, MCV4U, MHF4U, one of SBI4U/SCH4U/SPH4U",No,Open enrolment,No
+Nursing,80,7571,19323,"ENG4U/EAE4U/NBE4U, SBI4U,SCH4U, one of MCV4U/MHF4U",No,96,No
+Physical and Health Education,70,7571,19323,"ENG4U/EAE4U/NBE4U, SBI4U/PSK4U,SCH4U and one of MCV4U/MHF4U recommended",No,120,No
+Psychology,70,7571,19323,"ENG4U/EAE4U/NBE4U, 4U math, one of SCH4U/SPH4U/SBI4U",No,Open enrolment,No
+Social Science,70,7571,19323,ENG4U/EAE4U/NBE4U,No,Open enrolment,No
+Economics,70,8731,19323,"ENG4U/EAE4U/NBE4U, one of 4U math",No,Open enrolment,No

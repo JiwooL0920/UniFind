@@ -1,0 +1,21 @@
+Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Art,70,6000,25960,ENG4U/EAE4U/NBE4U,N/A,Open enrolment,Yes
+Biology,70,6000,25960,"ENG4U/EAE4U/NBE4U, MHF4U, two of SBI4U/SCH4U/SPH4U/MCV4U/MDM4U",N/A,Open enrolment,No
+Business,70,7434,28283,"ENG4U/EAE4U/NBE4U, two math4U",N/A,Open enrolment,No
+Chemistry,70,6000,25960,"ENG4U/EAE4U/NBE4U, MHF4U, two of SBI4U/SCH4U/SPH4U",N/A,Open enrolment,No
+Computer Science,70,7434,25960,"ENG4U/EAE4U/NBE4U, MHF4U",N/A,Open enrolment,No
+Education with Health Promotion,75,6000,25960,"ENG4U/EAE4U/NBE4U, SCH4U, SBI4U/PSE4U",N/A,Limited,No
+Education with Outdoor Adventure Leadership,75,6000,25960,"ENG4U/EAE4U/NBE4U, SBI4U/PSE4U",N/A,Limited,No
+Education with Science,75,6000,25960,"ENG4U/EAE4U/NBE4U, MHF4U, two of SBI4U/SCH4U/SPH4U",N/A,Limited,No
+Engineering,70,8068,32158,"ENG4U/EAE4U/NBE4U, SPH4U, SCH4U, MHF4U, MCV4U",Yes,Open enrolment,No
+Forensic Science,80,6000,25960,"ENG4U/EAE4U/NBE4U, SBI4U, MHF4U, SCH4U",N/A,Limited,No
+Kinesiology,75,6000,25960,"ENG4U/EAE4U/NBE4U, MHF4U, SCH4U",N/A,Limited,No
+Mathematics,70,6000,25960,"ENG4U/EAE4U/NBE4U, MHF4U, one other math",N/A,Open enrolment,No
+Midwifery,70,6000,25960,"ENG4U/EAE4U/NBE4U, SBI4U/SCH4U, one social science",N/A,Limited,Yes
+Nursing,75,6000,25960,"ENG4U/EAE4U/NBE4U, SCH4U, SBI4U, one math",N/A,Limited,No
+Radiation Therapy,70,6000,25960,"ENG4U/EAE4U/NBE4U, SPH4U, SBI4U, SCH4U, MHF4U",N/A,Limited,Yes
+Sport and Physical Education,75,6000,25960,"ENG4U/EAE4U/NBE4U, SBI4U/PSE4U",N/A,Limited,No
+Sport Psychology,75,6000,25960,ENG4U/EAE4U/NBE4U,N/A,Limited,No
+Sports Administration,75,7434,25960,"ENG4U/EAE4U/NBE4U, two of 4U math",N/A,Limited,No
+Theatre,70,6000,25960,ENG4U/EAE4U/NBE4U,N/A,Open enrolment,Yes
+Women’s and Gender Studies,70,6000,25960,ENG4U/EAE4U/NBE4U,N/A,Open enrolment,No

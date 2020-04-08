@@ -1,0 +1,22 @@
+﻿Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Applied Science,75,14180,62790,"ENG4U,MCV4U,SPH4U,SBI4U",No,N/A,No
+Applied Science in Engineering,80,14180,62790,"ENG4U,MCV4U,SPH4U,SBI4U,MHF4U",Yes,N/A,Yes
+Architecture Landscape & Design,80,6100,57020,ENG4U,No,N/A,Yes
+Art & Science,75,6100,57020,ENG4U,No,N/A,No
+Dentistry,80,37080,101200,"ENG4U,MCV4U",No,N/A,No
+Computer Science,80,6100,57020,"ENG4U,MCV4U",Yes,N/A,No
+Data Science,80,6100,57020,"ENG4U,MCV4U",No,N/A,No
+Bioinformatics,80,6100,57020,"ENG4U,MCV4U,SPH4U,SBI4U,MHF4U",No,N/A,No
+Visual Studies(Culture and Communications),75,6100,57020,ENG4U,No,N/A,Yes
+Communication Culture and Information Technology,75,6100,57020,ENG4U,No,N/A,No
+Information,75,6100,57020,ENG4U,No,N/A,No
+Business Administration,80,6100,57020,"ENG4U,MCV4U",No,N/A,No
+Commerce,80,6100,57020,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Management,80,6100,57020,"ENG4U,MHF4U",No,N/A,No
+Education,75,6100,35890,ENG4U,No,N/A,No
+Kinesiology,80,6100,35890,"ENG4U,MCV4U,MHF4U,One of SPH4U/SBI4U/SCH4U",No,N/A,No
+Law,85,33040,54320,ENG4U,No,N/A,No
+Medicine,88,6890,35540,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",No,N/A,Yes
+Music,70,6100,38400,ENG4U,No,N/A,Yes
+Nursing,80,8190,56950,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",No,N/A,No
+Pharmacy,80,19660,42740,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",No,N/A,No

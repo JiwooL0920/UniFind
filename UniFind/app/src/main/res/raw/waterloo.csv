@@ -1,0 +1,50 @@
+﻿Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Health Science,80,7200,35300,"ENG4U,MHF4U/MDM4U/MCV4U,SCH4U,SBI4U",Yes,N/A,No
+Public Health,80,7200,35300,"ENG4U,MHF4U/MDM4U/MCV4",Yes,N/A,No
+Recreation and Leisure Studies,80,7200,35300,ENG4U,Yes,N/A,No
+Recreation and Sport Business,80,7200,35300,ENG4U,Yes,N/A,No
+Therapeutic Recreation,80,7200,35300,ENG4U,Yes,N/A,No
+Tourism Development,80,7200,35300,ENG4U,Yes,N/A,No
+Kinesiology,80,7200,35300,"ENG4U,MHF4U/MDM4U/MCV4U,SCH4U,SBI4U/SPH4U",Yes,N/A,No
+Accounting and Financial Management,80,7450,35400,"ENG4U,MHF4U,MCV4U",Yes,N/A,No
+Computing and Financial Management,90,9750,37900,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Economics,80,7200,37900,ENG4U,Yes,N/A,No
+Psychology,80,7200,37900,ENG4U,Yes,N/A,No
+Architecture,80,10520,51600,"ENG4U,MCV4U,MHF4U,SPH4U",Yes,N/A,Yes
+Biomedical Engineering,90,16120,54600,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Chemical Engineering,90,16120,54600,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Civil Engineering,80,16120,54600,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Electrial Engineering,90,16120,54600,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,N/A,No
+Environmental Engineering,80,16120,54600,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",Yes,N/A,No
+Mechanical Engineering,90,16120,54600,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",Yes,N/A,No
+Software Engineering,90,16120,54600,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",Yes,N/A,No
+Systems Design Engineering,90,16120,54600,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",Yes,N/A,No
+Computer Engineering,90,16120,54600,"ENG4U,MCV4U,SCH4U,SBI4U,MHF4U",Yes,N/A,No
+Environment and Business,80,7200,36700,"ENG4U,MHF4U/MDM4U/MCV4U,SCH4U,SPH4U,SBI4U",Yes,N/A,No
+Geography and Aviation,80,7200,36700,"ENG4U,MHF4U,MCV4U,MDM4U",Yes,N/A,No
+International Development,80,7200,36700,ENG4U,Yes,N/A,No
+Geomatics,80,7200,36700,"ENG4U,MCV4U/MDM4U/MHF4U",Yes,N/A,No
+Applied Mathematics,80,7200,36700,N/A,Yes,N/A,No
+Biostatistics,80,7200,36700,N/A,Yes,N/A,No
+Business Administration and Computer Science Double Degree,95,15640,54500,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Business Administration and Mathematics Double Degree,85,11320,39600,"ENG4U,MHF4U,MCV4U",Yes,N/A,No
+Computational Mathematics,80,7200,36700,N/A,Yes,N/A,No
+Computer Science,90,7200,36700,"MHF4U,MCV4U,ENG4U",Yes,N/A,No
+Data Science,80,7200,36700,N/A,Yes,N/A,No
+Computing Financial Management,90,9750,39700,"ENG4U,MHF4U,MCV4U",Yes,N/A,No
+Information Technology Management,80,7200,36700,N/A,Yes,N/A,No
+Mathematical Economics,80,7200,36700,N/A,Yes,N/A,No
+Mathematics,85,7200,36700,"MHF4U,MCV4U,ENG4U",Yes,N/A,No
+Statistics,80,7200,36700,N/A,Yes,N/A,No
+Biochemistry,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Biology,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Biomedical Science,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Biotechnology/Chartered Professional Accounting,90,7570,37300,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Biotechnology/Economics,80,7200,36700,N/A,Yes,N/A,No
+Chemistry,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Earth Sciences,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Environmental Science,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Life Physics,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Life Science,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Physics,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No
+Physics and Astronomy,80,7200,36700,"ENG4U,MHF4U,MCV4U,Two of SCH4U/SBI4U/MDM4U/SPH4U",Yes,N/A,No

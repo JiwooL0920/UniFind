@@ -1,0 +1,23 @@
+﻿Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Arts & Science,88,6042,32370,"ENG4U,MHF4U/MCV4U",No,70,No
+Bachelor of Technology,78,7973,33690,"ENG4U,MCV4U,SCH4U,SPH4U",Yes,240,Yes
+Business,86,9354,38160,"ENG4U,Two of MFH4U/MCV4U/MDM4U",Yes,800,No
+Chemical and Physical Sciences Gateway,82,6030,32370,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,125,No
+Computer Science,92,7997,34800,"ENG4U,MCV4U,Two of SBI4U/SPH4U/SES4U/ICS4U/TEJ4M",Yes,50,No
+Economics,80,9354,38160,"ENG4U,Two of MHF4U/MCV4U/MDM4U ",Yes,125,No
+Engineering,87,10080,41370,"ENG4U,MCV4U,SCH4U,SPH4U",Yes,900,Yes 
+Environmental & Earth Sciences Gateway,82,6030,32370,"ENG4U,One of MHF4U/MCV4U/One of SBI4U/SCH4U, One of MHF4U/MCV4U/SBI4U/SPH4U",Yes,100,No
+Health and Society,80,6030,30774,ENG4U,Yes,60,No
+Health Sciences,90,6042,32340,"ENG4U,One of MHF4U/MCV4U/MDM4U,SBI4U,SCH4U,One non-math/non-tech 4U/M",No,240,Yes 
+Humanities,78,6030,30750,ENG4U,Yes,480,No
+Integrated Biomedical Engineering & Health Sciences,90,10080,40470,"ENG4U,MCV4U,SBI4U,SCH4U,SPH4U",Yes,140,Yes 
+Integrated Business & Humanities ,88,10080,39750,"ENG4U,MCV4U,MDM4U",Yes,60,Yes
+Integrated Science,87,10080,40470,"ENG4U,MFH4U,MCV4U,Two of SBI4U/SCH4U/SPH4U ",No,60,Yes 
+Kinesiology,87,6030,32370,"ENG4U,MCV4U,SBI4U ",No ,200,No
+Life Sciences ,87,6030,32370,"ENG4U,One of MHF4U/MCV4U,SBI4U,One of MHF4U/MCV4U/SCH4U/SPH4U",Yes,1000,No
+Mathematics & Statistics Gateway,85,6030,32370,"ENG4U,MHF4U,MCV4U",Yes,300,No
+Medical Radiation Sciences,85,6030,32370,"ENG4U,MFH4U,MCV4U,SBI4U,SCH4U",No,110,No
+Music,78,6030,30774,ENG4U,Yes,20,Yes
+Nursing ,85,6030,35610,"ENG4U,One of MHF4U/MCV4U/MDM4U",No,120,Yes
+Social Sciences ,78,6030,30750,ENG4U,Yes,855,No
+Studio Art ,78,6030,30774,ENG4U,Yes,25,Yes 

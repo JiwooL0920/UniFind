@@ -1,0 +1,115 @@
+Program,Admission_Average,Local_Tuition,International_Tuition,Requirements,Co-op,Target_Enrolloment,Supplementary_Application
+Actuarial Science,77,6981,29496,"ENG4U/MHF4U,four additional 4U or M courses",No,N/A,No
+African Studies,85,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Antropology,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Applied Mathematics (BA),80,6981,29496,ENG4U/MHF4U,No,N/A,No
+Applied Mathematics (BSc),80,6981,29496,"ENG4U,MHF4U, SBI4U/CH4U/SPH4U",No,N/A,No
+Art History,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Bachelor of Education,70,6981,29496,ENG4U,No,N/A,No
+Biochemistry,82,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U, MCV4U, one 4U or M courses",Yes,N/A,No
+Biology,82,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U, two additional 4U or M ",No,N/A,No
+Biomedical Science,82,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U , two additional 4U or M courses",No,N/A,No
+Biophysics,80,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U, MCV4U",No,N/A,No
+Biotechnology,82,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U",Yes,N/A,No
+Business and Society,75,9653,31483,"ENG4U, five additional 4U or M courses",No,N/A,No
+Business Administration,90,9653,31483,"ENG4U, MHF4U, MCV4U/MDM4U, Three 4U or M courses",No,N/A,No
+Business and Economics,77,9653,31483,"ENG4U, MHF4U",No,N/A,No
+Canadian Studies,77,6981,29496,"ENG4U/FRA4U, Five more 4U or M courses",No,N/A,No
+Chemistry,80,6981,29496,"ENG4U, MHF4U, SCH4U, One 4M/U science",Yes,N/A,No
+Children Childhood and Youth,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Cinema and Media Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Civil Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Computer Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Electrical Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Engineering and International Development Studies,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Geomatics Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Mechanical Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Software Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Space Engineering,82,10550,35419,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U",Yes,N/A,No
+Classical Studies and Classics,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Cognitive Science,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Commerce,82,9596,31424,"ENG4U,MHF4U",No,N/A,No
+Communication Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Computer Science,82,9596,28437,"ENG4U, MHF4U, 4U Math",No,N/A,No
+Computer Security,82,9596,28437,"ENG4U, MHF4U, 4U Math",No,N/A,No
+Criminology,82,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Culture and Expression,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Dance,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Design,85,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Digital Media,75,6981,29496,"ENG4U, 4U Math",No,N/A,No
+Disaster and Emergency Management,75,6981,29496,"ENG4U, MHF4U/MDM4U, four additional 4U or M courses",No,N/A,No
+Drama Studies,77,6981,29496,"ENG4U/FRA4U, Five additional 4U or M courses",No,N/A,No
+Earth and Atmospheric Science,77,6981,29496,"ENG4U, SPH4U, MHF4U, MCV4U",No,N/A,No
+East Asian Studeis,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Economics,77,6981,29496,"ENG4U, MHF4U",No,N/A,No
+Ecosystem and Management,77,6981,29496,ENG4U,No,N/A,No
+Educational Studeis,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+English,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+English and Professional Writing,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+English Studies,77,6981,29496,"ENG4U/FRA4U, Five additional 4U or M courses",No,N/A,No
+Environmental Biology,82,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U",Yes,N/A,No
+Environmental Science (Life Science),77,6981,29496,"ENG4U, MHF4U, SBI4U, SCH4U",Yes,N/A,No
+Environmental Science (Physical Science),77,6981,29496,"ENG4U, SCH4U, SPH4U, MHF4U, MCV4U, One additional 4U/M",Yes,N/A,No
+Environmental Studies,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Environmental Technology,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Film Production,85,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Media Arts,85,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Screen Writing,85,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Financial and Business Economics,75,6981,29496,"ENG4U, MHF4U",No,N/A,No
+French Studies,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Gender and Women €™s Studies,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Geography (Liberal Arts),75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Geography (Science),80,6981,29496,ENG4U,No,N/A,No
+Geography and Urban Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+German Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Global Health,80,6981,29496,"ENG4U, 4U math, SBI4U/SCH4U/SPH4U",No,N/A,No
+Global Political Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Health and Society,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Health Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Hellenic Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+History,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Human Resources Management,77,6981,29496,"ENG4U, 4U math, four additional 4U or M courses",No,N/A,No
+Human Rights and Equality Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Humanities,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Indigenous Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Individualized Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Information Technology,77,6981,29496,"ENG4U, 4U math",No,N/A,No
+Integrated Science,85,6981,29496,"ENG4U, MHF4U, MCV4U, SBI4U/SCH4U/SPH4U",No,N/A,No
+Interdisciplinary Social Science,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+International Development,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+International Development Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+International Studies & Business Administration,77,9653,31483,"ENG4U/FRA4U, MHF4U, MCV4U/MDM4U, three additional 4U or M ",No,N/A,No
+Italian Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Jewish Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Kinesiology and Health Science,80,6981,29496,"ENG4U, 4U math, SBI4U/SCH4U/SPH4U, three additional 4U or M courses",No,N/A,No
+Law and Society,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Linguistics,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Mathematical Biology,80,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U, MCV4U, One additional 4U/M",No,N/A,No
+Mathematics,80,6981,29496,"ENG4U, MHF4U,SBI4U/SPH4U, three additional 4U or M courses",No,N/A,No
+Mathematics for Education,80,6981,29496,"ENG4U, MHF4U, four additional 4U/M",No,N/A,No
+Music ,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Neuroscience,82,6981,29496,"ENG4U, SBI4U, SCH4U, MHF4U",No,N/A,No
+Nursing: Collaborative,77,6981,29496,"ENG4U, 4U math, SBI4U, SCH4U/SPH4U, two additional 4U or M courses",No,N/A,No
+Philosophy,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Physics and Asotronomy,80,6981,29496,"ENG4U, SPH4U, MHF4U, MCV4U, two additional 4U or M courses",No,N/A,No
+Political Science,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Portuguese & Luso-Brazilian Studies,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Professional Writing,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Psychology (BA),77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Psychology (BSc),77,6981,29496,"ENG4U, 4U math, SCH4U/SPH4U, Three additional 4U or M courses",No,N/A,No
+Public Administration,75,6981,29496,"ENG4U, 4U math, four additional 4U or M courses",No,N/A,No
+Religious Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Sexuality Studies,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Social Work,85,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Sociology,77,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Spanish,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Statistics (BA),80,6981,29496,"ENG4U, MHF4U, four additional 4U or M courses",No,N/A,No
+Statistics (BSc),80,6981,29496,"ENG4U, MHF4U, SBI4U/CH4U/PH4U, three additional 4U or M course",No,N/A,No
+Theatre,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Translation,77,6981,29496,"4U English, 4U French, four additional 4U or M courses",No,N/A,No
+Undecided Major (BSc),80,6981,29496,"ENG4U,MHF4U,SBI4U/CH4U/SPH4U",No,N/A,No
+Undecided Major (BA),75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Urban Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Urban Sustainability,77,6981,29496,ENG4U,No,N/A,No
+Visual Arts,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No
+Work and Labour Studies,75,6981,29496,"ENG4U, five additional 4U or M courses",No,N/A,No

@@ -20,6 +20,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
 import java.io.InputStream;
 import java.util.Scanner;
 import android.widget.TextView;
@@ -29,6 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+
 public class MainActivity extends AppCompatActivity {
     private Button button;
     public String[] universityFileNames;
@@ -36,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<String,String> rankingList;
     ArrayList<Program> filterList;
 
-    private final String[] categories = new String[] {"admission_average",              // 0
-            "local_tuition",                  // 1
-            "international_tuition",          // 2
-            "coop",                           // 3
-            "target_enrolment",               // 4
-            "supplementary_application"};     // 5
 
+    private final String[] categories = new String[] {"admission_average",              // 0
+                                                      "local_tuition",                  // 1
+                                                      "international_tuition",          // 2
+                                                      "coop",                           // 3
+                                                      "target_enrolment",               // 4
+                                                      "supplementary_application"};     // 5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         this.filterList = new ArrayList<>();
         this.rankingList = new HashMap<String,String>();
 
+
         Button b =  (Button) findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
                 getData();
 
                 Log.i("myapp","sort computer science on admission average-----------------------------------------------------");
-                University[] sortResult = getProgramBasedOnCategory("Computer Science","admission_average");
+                University[] sortResult = getProgramBasedOnCategory("English","admission_average");
                 for (University s : sortResult) {
-                    Log.i("sort",s.getName());
+                    Log.i("myapp",s.getName());
                 }
 
 
@@ -89,6 +94,20 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getData();
+
+                Log.i("myapp","sort computer science on admission average-----------------------------------------------------");
+                University[] sortResult = getProgramBasedOnCategory("Computer Science","admission_average");
+                for (University s : sortResult) {
+                    Log.i("sort",s.getName());
+                }
+
+
+                Log.i("myapp","carleton---------------------------------------------------------------------------------------");
+                coopOrSupFilter("carleton");
+                for (Program p : filterList) {
+                    Log.i("myapp",p.getName());
+                }
                 openMajor();
             }
         });
@@ -266,25 +285,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

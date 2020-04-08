@@ -1,0 +1,24 @@
+Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements ,Co-op,Target_Enrolment,Supplementary_Application
+Arts (QA),80,3429,20856,"ENG4U,Two of MHF4U/MCV4U/MDM4U",Yes,1505,N/A
+Arts at the Bader International Study Centre (QIA),80,3429,13635,"ENG4U,MHF4U,MCV4U,SCH4U,SPH4U",Yes,73,N/A
+Computing (QD),85,3601,13635,"ENG4U,MHF4U,MCV4U",Yes,160,N/A
+Concurrent Education/Arts (QB),85,3315,13635,ENG4U,No,140,N/A
+Concurrent Education/Arts at the Bader International Study Centre (QIB),80,3315,13635,"ENG4U,SBI4U, SCH4U, One of MHF4U/MCV4U",No,20,N/A
+Concurrent Education/Fine Art (QTT),80,3315,13635,"ENG4U,MCV4U,One other math, one of SBI4U/SCH4U/SPH4U",No,10,N/A
+Concurrent Education/Music (QMM),80,3315,13635,"ENG4U,One of MHF4U/MCV4U/MDM4U",No,20,N/A
+Concurrent Education/Science (QF),80,3315,13635,"ENG4U,MHF4U,MCV4U,Two of SBI4U/SCH4U/SPH4U",No ,60,N/A
+Electrical & Computing Engineering Stream (QEC),87,5201,13665,"ENG4U, MCV4U, SCH4U, SPH4U, One of MHF4U/SBI4U/MDM4U/ISC4U/SES4U.",Yes,50,N/A
+Faculty of Engineering and Applied Science (QE),70,6669,21837,"ENG4U, MCV4U, SCH4U, SPH4U, One of MHF4U/SBI4U/MDM4U/ISC4U/SES4U.",Yes,680,N/A
+Faculty of Health Sciences (QHS),80,3315,15000,"ENG4U, SBI4U, SCH4U, and any 4U Mathematics course",No,N/A,N/A
+Fine Art (QT),80,3315,15000,ENG4U,No,18,N/A
+Health Sciences at the BISC (QIH),90,3429,16937,"ENG4U, SBI4U, SCH4U, and any 4U Mathematics course",No,N/A,N/A
+Kinesiology (QK),84,3000,15000,"ENG4U, MHF4U, SBI4U, SCI4U and any 4U Mathematics course",No,160,N/A
+Music (QM),80,3000,15000,ENG4U,No,20,N/A
+Music Theatre (QMT),78,3000,15000,ENG4U,No,20,N/A
+QBridge Arts (QXA),80,3000,15000,"ENG4U, MHF4U, MCV4U",Yes,50,N/A
+QBridge Engineering (QXE),90,3000,15000,"ENG4U, MCV4U, SCH4U, SPH4U, One of MHF4U/SBI4U/MDM4U/ISC4U/SES4U.",Yes,15,N/A
+QBridge Science (QXS),85,3000,15000,"ENG4U,MHF4U,MCV4U,Two of SBI4U/SCH4U/SPH4U",Yes,35,N/A
+Queen's Nursing (QN),90,3429,20856,"ENG4U, SBI4U, SCH4U, and any 4U Mathematics course",No,92,N/A
+Science (QS),82,3000,15000,"ENG4U,MCV4U,MHF4U, Two of SBI4U/SCH4U/SPH4U",Yes,1000,N/A
+Science at the Bader International Study Centre (QIS),80,3000,15000,"ENG4U,MHF4U,MCV4U,Two of SBI4U/SCH4U/SPH4U",Yes,32,N/A
+Smith School of Business Commerce (QC),87,8267,22859,"ENG4U,MHF4U, One of MCV4U/MDM4U",No,500,N/A

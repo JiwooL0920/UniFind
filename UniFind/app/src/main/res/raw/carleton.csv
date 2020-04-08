@@ -1,0 +1,28 @@
+﻿Program,Admission_Average,Local_Tuition,International_Tuition,Requirements,Co-op,Target_Enrolment,Supplementary_Application
+Architectural Studies,77,9200,25379,"ENG4U,SPH4U,MHF4U",Yes,N/A,Yes
+Arts ,77,9200,25379,ENG4U ,Yes,N/A,No
+Biology,77,9200,25379,"ENG4U,SCH4U",Yes,N/A,No
+Cognitive Science,77,9200,25379,ENG4U,Yes,N/A,No
+Commerce ,82,9200,25379,"ENG4U, MHF4U,MCV4U",Yes,N/A,No
+Communication and Media Studies ,77,9200,25379,ENG4U,Yes,N/A,No
+Computer Science,82,9200,25379,MHF4U/MCV4U,Yes,N/A,No
+Economics,77,9200,25379,"ENG4U,MHF4U",Yes,N/A,No
+Engineering,85,9200,25379,"MHF4U,SCH4U,SPH4U,MCV4U/SBI4U/SES4U",Yes,N/A,No
+Global and International Studies,77,9200,25379,ENG4U,No,N/A,No
+French Studies ,77,9200,25379,"ENG4U, One French credit",No,N/A,No
+Health Sciences,88,9200,25379,"MHF4U,Two from SBI4U/SCH4U/SES4U/SPH4U",No,N/A,No
+Humanities ,84,9200,25379,None,No,N/A,Yes 
+Industrial Design,77,9200,25379,"MHF4U,SPH4U",Yes,N/A,Yes
+Information Resource Management,77,9200,25379,"ENG4U, One Math credit",Yes,N/A,No
+Interactive Multimedia and Design,77,9200,25379,MHF4U,Yes,N/A,Yes
+Network Technology,77,9200,25379,One Math credit,Yes,N/A,No
+Optical Systems and Sensors,77,9200,25379,MHF4U,Yes,N/A,No
+International Business,85,9200,25379,"ENG4U, MHF4U,MCV4U",No,N/A,No
+Journalism,88,9200,25379,ENG4U ,No,N/A,No
+Journalism and Humanities,88,9200,25379,ENG4U,No,N/A,No
+Mathematics,82,9200,25379,"MHF4U,MCV4U",Yes,N/A,No
+Media Production and Design,82,9200,25379,"ENG4U, One Math credit",No,N/A,No
+Music,77,9200,25379,None,No,N/A,Yes
+Public Affairs and Policy Management,86,9200,25379,None,No,N/A,No
+Science,82,9200,25379,"MHF4U,Two from SBI4U/SCH4U/SES4U/SPH4U",Yes,N/A,No
+Social Work,80,9200,25379,None,No,N/A,Yes
