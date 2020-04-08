@@ -123,15 +123,15 @@ public class MajorSortActivity extends AppCompatActivity {
 
             //Get program Info
             Program p = u.getProgram(this.major);
-            List<String> programInfo = new ArrayList<>(); //get back
+            List<String> programInfo = new ArrayList<>();
             programInfo.add("Program name: \n" + p.getName());
-            programInfo.add("Admission Average: \n" + p.getAdmission_average());
-            programInfo.add("Domestic Tuition: \n" + p.getLocal_tuition());
-            programInfo.add("International Tuition: \n" + p.getInternational_tuition());
-            programInfo.add("Requirements: \n" + p.getRequirements());
-            programInfo.add("Coop: \n" + p.isCoop());
+            programInfo.add("Admission Average: \n" + p.getAdmission_average()+"%");
+            programInfo.add("Domestic Tuition: \n$" + p.getLocal_tuition());
+            programInfo.add("International Tuition: \n$" + p.getInternational_tuition());
+            programInfo.add("Requirements: \n" + removeQuotations(p.getRequirements()));
+            programInfo.add("Coop: \n" + booleanToString(p.isCoop()));
             programInfo.add("Target Enrolment: \n" + p.getTarget_enrolment());
-            programInfo.add("Supplementary Application: \n" + p.isSupplementary_applicatoin());
+            programInfo.add("Supplementary Application: \n" + booleanToString(p.isSupplementary_applicatoin()));
             listItem.put(count+") "+universityName,programInfo);
             count++;
         }
@@ -143,6 +143,15 @@ public class MajorSortActivity extends AppCompatActivity {
 
         this.adaptor.notifyDataSetChanged();
     }
+
+
+    //Function to remove quotations (for requirement)
+    public String removeQuotations(String s) {
+        if (s.charAt(0) == '"') {
+            return s.substring(1, s.length() - 1);
+        } else return s;
+    }
+
 
     //get data
     public void getData() {
@@ -187,6 +196,11 @@ public class MajorSortActivity extends AppCompatActivity {
             default: // ?
                 return false;
         }
+    }
+
+    public String booleanToString(boolean b) {
+        if (b) return "Yes";
+        else return "No";
     }
 
     public void getUniversityRanking() {
