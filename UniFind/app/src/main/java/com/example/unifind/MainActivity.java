@@ -35,13 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.universityFileNames = new String[] {"algoma", "brock", "carleton",
-                "guelph", "hearst", "lakehead",
-                "laurentian", "mcmaster", "nipissing",
-                "ocad", "uoit", "ottawa",
-                "queens", "ryerson", "trent",
-                "uoft", "waterloo", "western",
-                                                "wilfred_laurier",
-                "windsor", "york"};
+                                                 "guelph", "hearst", "lakehead",
+                                                "laurentian", "mcmaster", "nipissing",
+                                                 "ocad", "uoit", "ottawa",
+                                                 "queens", "ryerson", "trent",
+                                                "uoft", "waterloo", "western",
+                                                "wilfred_laurier", "windsor", "york"};
 
         //This one works??? this doesnt work yyyyy?
         this.universityNameConversion = new HashMap<String,String>();
@@ -73,10 +72,18 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUniversityData();
 
+                getData();
+                for ()
+                Log.i("myapp",ranking);
             }
         });
+    }
+
+    //get data
+    public void getData() {
+        getUniversityData();
+        getUniversityRanking();
     }
 
     //Get University data from CSV
@@ -127,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //TODO [Jennie]: update university's ranking field
     public void getUniversityRanking() {
         InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
         Scanner scanner = new Scanner(ins);
@@ -151,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
     }
     //Get ranking data
 
