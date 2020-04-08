@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.io.InputStream;
@@ -17,21 +18,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.List;
 
 import android.util.Log;
+import java.util.Arrays;
 
 public class MajorSortActivity extends AppCompatActivity {
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
     private ArrayList<String> boolList;
+    private String[] categories;
+    private HashMap<String,String> universityNameConversion;
 
-    private final String[] categories = new String[] {"admission_average",              // 0
-            "local_tuition",                                                            // 1
-            "international_tuition",                                                    // 2
-            "coop",                                                                     // 3
-            "target_enrolment",                                                         // 4
-            "supplementary_application"};                                               // 5
+    //Expandable view
+    ExpandableListView expandableListView;
+    List<String> listGroup;
+    HashMap<String,List<String>> listItem;
+    MainAdaptor adaptor;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +56,85 @@ public class MajorSortActivity extends AppCompatActivity {
                 "uoft", "waterloo", "western",
                 "wilfred_laurier", "windsor", "york"};
 
-        this.universities = new ArrayList<University>();
-        this.rankingList = new HashMap<String,String>();
-        this.boolList = new ArrayList<String>();
+        this.categories = new String[] {"admission_average",              // 0
+                "local_tuition",                                          // 1
+                "international_tuition",                                  // 2
+                "coop",                                                   // 3
+                "target_enrolment",                                       // 4
+                "supplementary_application"};                             // 5
 
+        //University name conversion
+        this.universityNameConversion = new HashMap<String,String>();
+        this.universityNameConversion.put("algoma","Algoma University");
+        this.universityNameConversion.put("brock","Brock University");
+        this.universityNameConversion.put("carleton","Carleton University");
+        this.universityNameConversion.put("guelph","University of Guelph");
+        this.universityNameConversion.put("hearst","Université de Hearst");
+        this.universityNameConversion.put("leakehead","Lakehead University");
+        this.universityNameConversion.put("laurentian","Laurentian University");
+        this.universityNameConversion.put("mcmaster","McMaster University");
+        this.universityNameConversion.put("nipissing","Nipissing University");
+        this.universityNameConversion.put("ocad","OCAD University");
+        this.universityNameConversion.put("uoit","University of Ontario Institute of Technology");
+        this.universityNameConversion.put("ottawa","University of Ottawa");
+        this.universityNameConversion.put("queens","Queen's University");
+        this.universityNameConversion.put("ryerson","Ryerson University");
+        this.universityNameConversion.put("trent","Trent University");
+        this.universityNameConversion.put("uoft","University of Toronto");
+        this.universityNameConversion.put("waterloo","University of Waterloo");
+        this.universityNameConversion.put("western","Western University");
+        this.universityNameConversion.put("wilfred_laurier","Wilfred Laurier University");
+        this.universityNameConversion.put("windsor","University of Windsor");
+        this.universityNameConversion.put("york","York University");
+
+        this.universities = new ArrayList<>();
+        this.rankingList = new HashMap<>();
+        this.boolList = new ArrayList<>();
+
+        //Expandable view
+        getData();
+
+        expandableListView = findViewById(R.id.activity_major_sort);
+
+        this.listGroup = new ArrayList<>();
+        this.listItem = new HashMap<>();
+
+
+        this.adaptor = new MainAdaptor(this,listGroup,listItem);
+        expandableListView.setAdapter(adaptor);
+        getListViewData();
+
+
+
+
+    }
+
+    //Get listView
+    public void getListViewData() {
         //Retrieved data (what major) passed from MajorActivity
         String major = getIntent().getStringExtra("Major");
         Log.i("myapp",major);
+
+        //Get major data
+        University[] sorted = getProgramBasedOnCategory(major,"admission_average");
+        Log.i("myapp","sorted:"+Arrays.toString(sorted));
+
+        //Loop through this and make hashmap
+        int count = 1;
+        for (University u : sorted) {
+            listGroup.add(count+") "+u.getName());
+            List<String> programInfo = new ArrayList<>(); //get back
+            programInfo.add("hi");
+            listItem.put(count+") "+u.getName(),programInfo);
+            count++;
+        }
+
+        //test listgroup
+        for (String s : listGroup) {
+            Log.i("myapp",s);
+        }
+
+        this.adaptor.notifyDataSetChanged();
     }
 
     //get data
@@ -178,7 +257,7 @@ public class MajorSortActivity extends AppCompatActivity {
             values[i] = Integer.parseInt(valuesInteger[i].toString());
         }
         //sort values and use that index to sort the names
-        String[] resultInString = sortIncreasingOrder(universityNames, values);
+        String[] resultInString = sortDecreasingOrder(universityNames, values);
         //Change this into array of universities
         University[] result = new University[resultInString.length];
         for (int i = 0; i < result.length; i++) {
@@ -202,12 +281,12 @@ public class MajorSortActivity extends AppCompatActivity {
     }
 
     //bubble sort
-    public String[] sortIncreasingOrder(String[] universityNames, int[] values) {
+    public String[] sortDecreasingOrder(String[] universityNames, int[] values) {
         boolean sorted = true;
         while (sorted) {
             sorted = false;
             for (int i = 0; i < values.length - 1; i++) {
-                if (values[i+1] < values[i]) {
+                if (values[i+1] > values[i]) {
                     exchInt(values,i,i+1);
                     exchString(universityNames,i,i+1);
                     sorted = true;
