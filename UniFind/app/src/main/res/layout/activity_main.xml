@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue2"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -22,12 +23,232 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:text="OR search by MAJOR "
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/ic_school_black_24dp"/>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/imagebuttonAlgoma"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="110dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/algoma"
+                />
+
+            <Button
+                android:id="@+id/imagebuttonBrock"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/brock"
+                />
+
+            <Button
+                android:id="@+id/imagebuttonCarleton"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/carleton"
+                />
+
+            <Button
+                android:id="@+id/imagebuttonGuelph"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/guelph"
+                />
+            <Button
+                android:id="@+id/imagebuttonHearst"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/hearst"
+                />
+            <Button
+                android:id="@+id/imagebuttonLakehead"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/lakehead"
+                />
+            <Button
+                android:id="@+id/imagebuttonLaurentian"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/laurentian"
+                />
+
+            <Button
+                android:id="@+id/imagebuttonMcMaster"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/mcmaster"
+                />
+            <Button
+                android:id="@+id/imagebuttonOCAD"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/ocad"
+                />
+
+            <Button
+                android:id="@+id/imagebuttonOnTech"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/ontech"
+                />
+            <Button
+                android:id="@+id/imagebuttonOttawa"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/ottawa"
+                />
+            <Button
+                android:id="@+id/imagebuttonQueens"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/queens"
+                />
+            <Button
+                android:id="@+id/imagebuttonRyerson"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/ryerson"
+                />
+            <Button
+                android:id="@+id/imagebuttonToronto"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/toronto"
+                />
+            <Button
+                android:id="@+id/imagebuttonTrent"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/trent"
+                />
+            <Button
+                android:id="@+id/imagebuttonWaterloo"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/waterloo"
+                />
+            <Button
+                android:id="@+id/imagebuttonWestern"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/western"
+                />
+            <Button
+                android:id="@+id/imagebuttonWilfridLaurier"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/wilfridlaurier"
+                />
+            <Button
+                android:id="@+id/imagebuttonWindsor"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/windsor"
+                />
+            <Button
+                android:id="@+id/imagebuttonYork"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="80dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/york"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
