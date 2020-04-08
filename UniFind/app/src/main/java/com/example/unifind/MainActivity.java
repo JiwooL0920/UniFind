@@ -22,13 +22,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+
 public class MainActivity extends AppCompatActivity {
 
     public String[] universityFileNames;
     public ArrayList<University> universities;
-    HashMap<String,String> universityNameConversion;
     private HashMap<String,String> ranking;
 
+    private final String[] categories = new String[] {"admission_average",              // 0
+                                                      "local_tuition",                  // 1
+                                                      "international_tuition",          // 2
+                                                      "coop",                           // 3
+                                                      "target_enrolment",               // 4
+                                                      "supplementary_application"};     // 5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,29 +48,7 @@ public class MainActivity extends AppCompatActivity {
                                                 "uoft", "waterloo", "western",
                                                 "wilfred_laurier", "windsor", "york"};
 
-        //This one works??? this doesnt work yyyyy?
-        this.universityNameConversion = new HashMap<String,String>();
-        this.universityNameConversion.put("algoma","Algoma University");
-        this.universityNameConversion.put("brock","Brock University");
-        this.universityNameConversion.put("carleton","Carleton University");
-        this.universityNameConversion.put("guelph","University of Guelph");
-        this.universityNameConversion.put("hearst","Université de Hearst");
-        this.universityNameConversion.put("leakehead","Lakehead University");
-        this.universityNameConversion.put("laurentian","Laurentian University");
-        this.universityNameConversion.put("mcmaster","McMaster University");
-        this.universityNameConversion.put("nipissing","Nipissing University");
-        this.universityNameConversion.put("ocad","OCAD University");
-        this.universityNameConversion.put("uoit","University of Ontario Institute of Technology");
-        this.universityNameConversion.put("ottawa","University of Ottawa");
-        this.universityNameConversion.put("queens","Queen's University");
-        this.universityNameConversion.put("ryerson","Ryerson University");
-        this.universityNameConversion.put("trent","Trent University");
-        this.universityNameConversion.put("uoft","University of Toronto");
-        this.universityNameConversion.put("waterloo","University of Waterloo");
-        this.universityNameConversion.put("western","Western University");
-//        this.universityNameConversion.put("wilfred_laurier","Wilfred Laurier University");
-        this.universityNameConversion.put("winsor","University of Windsor");
-        this.universityNameConversion.put("york","York University");
+
 
         this.universities = new ArrayList<University>();
 
@@ -74,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 getData();
+                Log.i("myapp","got data-------------------------------------------------------------");
+                University[] sortResult = getProgramBasedOnCategory("Computer Science","admission_average");
+                for (University s : sortResult) {
+                    Log.i("sort",s.getName());
+                }
 
             }
         });
@@ -82,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     //get data
     public void getData() {
         getUniversityData();
-        getUniversityRanking();
+//        getUniversityRanking();
     }
 
     //Get University data from CSV
@@ -100,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 //                Log.i("myapp",name);
             while (scanner.hasNextLine()) {
                 String s = scanner.nextLine();
-                String[] cells = s.split(",");
+                String[] cells = s.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 //                    Log.i("myapp",cells[0]);
                 Program p = new Program(cells[0],                       //name
                         Integer.parseInt(cells[1]),                       //Admission Average
@@ -115,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
             universities.add(university);
         }
         //check in log
-        Log.i("myapp","finalresult====================================");
-        for (University u : universities) {
-            Log.i("myapp",u.getName());
-        }
+//        Log.i("myapp","finalresult====================================");
+//        for (University u : universities) {
+//            Log.i("myapp",u.getName());
+//        }
     }
 
     //Function that changes Yes/No to boolean
@@ -162,12 +151,89 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Sort universities based on: admission average/tuition
-//    public void getProgramRanking(String category) {
-//        ArrayList<University> programRanking = new ArrayList<University>;
-//        for (University u : this.universities) {
-//            int val =
-//        }
-//    }
+    public University[] getProgramBasedOnCategory(String programName, String category) {
+        HashMap<String,Integer> programRanking = new HashMap<String,Integer>();
+        for (University u : this.universities) {
+            Program p = u.getProgram(programName);
+            if (p != null) {
+                int val = 0;
+                switch (category) {
+                    case "admission_average":
+                        val = p.getAdmission_average();
+                        break;
+                    case "ranking":
+                        break;
+                }
+                programRanking.put(u.getName(),new Integer(val));
+//                Log.i("myapp",u.getName());
+            }
 
+        }
+//        Log.i("myapp","reached1");
+        //make hashmap into array [ names ]    [ val ]   at same index
+        String[] universityNames = objToString(programRanking.keySet().toArray());
+        Integer[] valuesInteger = objToInt(programRanking.values().toArray());
+        //change this to int[]
+        int[] values = new int[valuesInteger.length];
+        for (int i = 0; i < valuesInteger.length; i++) {
+            values[i] = Integer.parseInt(valuesInteger[i].toString());
+        }
+//        Log.i("myapp","reached2");
+        //sort values and use that index to sort the names
+        String[] resultInString = sortIncreasingOrder(universityNames, values);
+        //Change this into array of universities
+        University[] result = new University[resultInString.length];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = getUniversity(resultInString[i]);
+        }
+        return result;
+    }
 
+    public String[] objToString(Object[] obj) {
+        String[] result = new String[obj.length];
+        for (int i = 0; i < obj.length; i++) {
+            result[i] = obj[i].toString();
+        } return result;
+    }
+
+    public Integer[] objToInt(Object[] obj) {
+        Integer[] result = new Integer[obj.length];
+        for (int i = 0; i < obj.length; i++) {
+            result[i] = Integer.parseInt(obj[i].toString());
+        } return result;
+    }
+
+    //bubble sort
+    public String[] sortIncreasingOrder(String[] universityNames, int[] values) {
+        boolean sorted = true;
+        while (sorted) {
+            sorted = false;
+            for (int i = 0; i < values.length - 1; i++) {
+                if (values[i+1] < values[i]) {
+                    exchInt(values,i,i+1);
+                    exchString(universityNames,i,i+1);
+                    sorted = true;
+                }
+            }
+        } return universityNames;
+    }
+
+    public void exchString(String[] a, int i, int j) {
+        String m1 = a[i];
+        a[i] = a[j];
+        a[j] = m1;
+    }
+
+    public void exchInt(int[] a, int i, int j) {
+        int m1 = a[i];
+        a[i] = a[j];
+        a[j] = m1;
+    }
+
+    //Get university given string name
+    public University getUniversity(String name) {
+        for (University u : this.universities) {
+            if (u.getName().equals(name)) return u;
+        } return null;
+    }
 }
