@@ -21,6 +21,9 @@ import java.util.Set;
 import java.util.List;
 
 import android.util.Log;
+
+import org.w3c.dom.Text;
+
 import java.util.Arrays;
 
 public class MajorSortActivity extends AppCompatActivity {
@@ -98,6 +101,8 @@ public class MajorSortActivity extends AppCompatActivity {
         //Retrieved data (what major) passed from MajorActivity
         this.major = getIntent().getStringExtra("Major");
         Log.i("myapp",this.major);
+        TextView majorNameTextView = findViewById(R.id.majorName);
+        majorNameTextView.setText(this.major);
 
         //Expandable View
         expandableListView = findViewById(R.id.activity_major_sort);

@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MajorSortActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Major"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/majorName"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/refreshButton"
+        android:layout_alignParentRight="true"/>
+
+    <
+
     <ExpandableListView
+        android:id="@+id/activity_major_sort"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/activity_major_sort" />
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/toolbar">
+
+
+    </ExpandableListView>
 
 </RelativeLayout>

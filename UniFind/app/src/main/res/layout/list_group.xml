@@ -11,6 +11,7 @@
         android:id="@+id/list_parent"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:background="@color/blue2"
         android:textColor="@color/blue1"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft">
 
