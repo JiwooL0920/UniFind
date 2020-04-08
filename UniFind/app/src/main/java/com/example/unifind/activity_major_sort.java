@@ -3,40 +3,42 @@ package com.example.unifind;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.widget.Button;
-import java.io.InputStream;
-import java.util.Scanner;
 import android.widget.TextView;
-import android.widget.Button;
-import android.util.Log;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.Set;
 
-
-public class MainActivity extends AppCompatActivity {
-    private Button button;
+public class activity_major_sort extends AppCompatActivity {
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
     private ArrayList<String> boolList;
 
-
     private final String[] categories = new String[] {"admission_average",              // 0
-                                                      "local_tuition",                  // 1
-                                                      "international_tuition",          // 2
-                                                      "coop",                           // 3
-                                                      "target_enrolment",               // 4
-                                                      "supplementary_application"};     // 5
+            "local_tuition",                                                            // 1
+            "international_tuition",                                                    // 2
+            "coop",                                                                     // 3
+            "target_enrolment",                                                         // 4
+            "supplementary_application"};                                               // 5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_major_sort);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Initialize field variables
         this.universityFileNames = new String[] {"algoma", "brock", "carleton",
                 "guelph", "hearst", "lakehead",
                 "laurentian", "mcmaster", "nipissing",
@@ -45,52 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 "uoft", "waterloo", "western",
                 "wilfred_laurier", "windsor", "york"};
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         this.universities = new ArrayList<University>();
-        this.boolList = new ArrayList<>();
         this.rankingList = new HashMap<String,String>();
-
-
-        Button b =  (Button) findViewById(R.id.button);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                getData();
-
-                Log.i("myapp","sort computer science on admission average-----------------------------------------------------");
-                University[] sortResult = getProgramBasedOnCategory("English","admission_average");
-                for (University s : sortResult) {
-                    Log.i("myapp",s.getName());
-                }
-
-
-            }
-        });
-
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getData();
-
-                Log.i("myapp","sort computer science on admission average-----------------------------------------------------");
-                University[] sortResult = getProgramBasedOnCategory("Computer Science","admission_average");
-                for (University s : sortResult) {
-                    Log.i("sort",s.getName());
-                }
-
-
-                Log.i("myapp","--------coop-------------------------------------------------------------------------------");
-                booleanFilter("Computer Science", "coop");
-                for (String p : boolList) {
-                    Log.i("myapp",p);
-                }
-
-                openMajor();
-            }
-        });
+        this.boolList = new ArrayList<String>();
     }
 
     //get data
@@ -98,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         getUniversityData();
         getUniversityRanking();
     }
+
 
     //Get University data from CSV
     public void getUniversityData() {
@@ -273,5 +233,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MajorActivity.class);
         startActivity(intent);
     }
+
 
 }
