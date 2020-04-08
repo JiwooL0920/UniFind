@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 "ocad", "uoit", "ottawa",
                 "queens", "ryerson", "trent",
                 "uoft", "waterloo", "western",
-//                                                "wilfred_laurier",
+                                                "wilfred_laurier",
                 "windsor", "york"};
 
         //This one works??? this doesnt work yyyyy?
