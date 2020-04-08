@@ -2,7 +2,7 @@ package com.example.unifind;
 
 public class Program {
     protected String name;
-    protected String admission_average;
+    protected int admission_average;
 
     protected int local_tuition;
     protected int international_tuition;
@@ -13,7 +13,7 @@ public class Program {
     protected boolean supplementary_applicatoin;
 
 
-    public Program(String p, String a, int lt, int it, String r, boolean c, String t, boolean s) {
+    public Program(String p, int a, int lt, int it, String r, boolean c, String t, boolean s) {
         name = p;
         admission_average = a;
         local_tuition = lt;
@@ -32,11 +32,11 @@ public class Program {
         this.name = name;
     }
 
-    public String getAdmission_average() {
+    public int getAdmission_average() {
         return admission_average;
     }
 
-    public void setAdmission_average(String admission_average) {
+    public void setAdmission_average(int admission_average) {
         this.admission_average = admission_average;
     }
 

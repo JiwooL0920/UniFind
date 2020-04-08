@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 getData();
-                for ()
-                Log.i("myapp",ranking);
+
             }
         });
     }
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 String[] cells = s.split(",");
 //                    Log.i("myapp",cells[0]);
                 Program p = new Program(cells[0],                       //name
-                        cells[1],                       //Admission Average
+                        Integer.parseInt(cells[1]),                       //Admission Average
                         Integer.parseInt(cells[2]),     //local tuition
                         Integer.parseInt(cells[3]),     //international tuition
                         cells[4],                       //requirement
@@ -160,7 +159,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    //Get ranking data
+
+
+    //Sort universities based on: admission average/tuition
+//    public void getProgramRanking(String category) {
+//        ArrayList<University> programRanking = new ArrayList<University>;
+//        for (University u : this.universities) {
+//            int val =
+//        }
+//    }
 
 
 }
