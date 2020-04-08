@@ -2,18 +2,9 @@ package com.example.unifind;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import java.io.InputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 import android.widget.TextView;
 import android.widget.Button;
@@ -76,21 +67,17 @@ public class MainActivity extends AppCompatActivity {
 
     //Get University data from CSV
     public void getUniversityData() {
-//        Log.i("myapp","reached2");
         final String dir = System.getProperty("user.dir");
         for (String name : this.universityFileNames) {
             InputStream ins = getResources().openRawResource(getResources().getIdentifier(name,"raw",getPackageName()));
             Scanner scanner = new Scanner(ins);
             String header = scanner.nextLine(); //get rid of header
             TextView text = (TextView) findViewById(R.id.text);
-//                Log.i("myapp",name);
             //retrieve data
             University university = new University(name);
-//                Log.i("myapp",name);
             while (scanner.hasNextLine()) {
                 String s = scanner.nextLine();
                 String[] cells = s.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-//                    Log.i("myapp",cells[0]);
                 Program p = new Program(cells[0],                       //name
                         Integer.parseInt(cells[1]),                       //Admission Average
                         Integer.parseInt(cells[2]),     //local tuition
@@ -103,11 +90,7 @@ public class MainActivity extends AppCompatActivity {
             }
             universities.add(university);
         }
-        //check in log
-//        Log.i("myapp","finalresult====================================");
-//        for (University u : universities) {
-//            Log.i("myapp",u.getName());
-//        }
+
     }
 
     //Function that changes Yes/No to boolean
@@ -165,11 +148,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 programRanking.put(u.getName(),new Integer(val));
-//                Log.i("myapp",u.getName());
             }
 
         }
-//        Log.i("myapp","reached1");
         //make hashmap into array [ names ]    [ val ]   at same index
         String[] universityNames = objToString(programRanking.keySet().toArray());
         Integer[] valuesInteger = objToInt(programRanking.values().toArray());
@@ -178,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < valuesInteger.length; i++) {
             values[i] = Integer.parseInt(valuesInteger[i].toString());
         }
-//        Log.i("myapp","reached2");
         //sort values and use that index to sort the names
         String[] resultInString = sortIncreasingOrder(universityNames, values);
         //Change this into array of universities
