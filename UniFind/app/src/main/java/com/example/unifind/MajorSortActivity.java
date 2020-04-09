@@ -338,10 +338,5 @@ public class MajorSortActivity extends AppCompatActivity {
         } return null;
     }
 
-    public void openMajor() {
-        Intent intent = new Intent(this, MajorActivity.class);
-        startActivity(intent);
-    }
-
 
 }
