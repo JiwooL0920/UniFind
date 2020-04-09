@@ -1,5 +1,6 @@
 package com.example.unifind;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -25,6 +27,7 @@ import android.util.Log;
 import org.w3c.dom.Text;
 
 import java.util.Arrays;
+import android.view.inputmethod.InputMethodManager;
 
 public class MajorSortActivity extends AppCompatActivity {
     public String[] universityFileNames;
@@ -34,6 +37,7 @@ public class MajorSortActivity extends AppCompatActivity {
     private String[] categories;
     private HashMap<String,String> universityNameConversion;
     private String major;
+    private int tuitionUpperBound;
 
     //Expandable view
     ExpandableListView expandableListView;
@@ -94,6 +98,7 @@ public class MajorSortActivity extends AppCompatActivity {
         this.universities = new ArrayList<>();
         this.rankingList = new HashMap<>();
         this.boolList = new ArrayList<>();
+        this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
 
         //Get Data
         getData();
@@ -112,7 +117,12 @@ public class MajorSortActivity extends AppCompatActivity {
         expandableListView.setAdapter(adaptor);
         getListViewData();
 
+        //Textfield
+        EditText et = findViewById(R.id.tuitionTF);
+
+
     }
+
 
     //Get listView
     public void getListViewData() {
@@ -139,11 +149,6 @@ public class MajorSortActivity extends AppCompatActivity {
             programInfo.add("Supplementary Application: \n" + booleanToString(p.isSupplementary_applicatoin()));
             listItem.put(count+") "+universityName,programInfo);
             count++;
-        }
-
-        //test listgroup
-        for (String s : listGroup) {
-            Log.i("myapp",s);
         }
 
         this.adaptor.notifyDataSetChanged();
