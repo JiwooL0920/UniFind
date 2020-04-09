@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.Switch;
@@ -30,8 +31,11 @@ import org.w3c.dom.Text;
 import java.util.Arrays;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
-public class MajorSortActivity extends AppCompatActivity {
+public class MajorSortActivity extends AppCompatActivity{
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
@@ -128,6 +132,35 @@ public class MajorSortActivity extends AppCompatActivity {
         final EditText et = findViewById(R.id.tuitionTF);
         final Switch coopSwitch = findViewById(R.id.coopSwitch);
         final Switch internationalSwitch = findViewById(R.id.internationalSwitch);
+        final Spinner rankSpinner = findViewById(R.id.rankSpinner);
+        List<String> categories = new ArrayList<>(Arrays.asList("Choose Ranking Option","Ranking","Admission Average","Tuition"));
+
+        ArrayAdapter aa = ArrayAdapter.createFromResource(this,R.array.rankingOptions,android.R.layout.simple_spinner_item);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        rankSpinner.setAdapter(aa);
+        rankSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("Choose")) {
+
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    //show selectedSpinner item
+                    Toast.makeText(parent.getContext(),"Selected"+item, Toast.LENGTH_SHORT).show();
+                    //anything else you want to do
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
         //Refresh Button
         Button refreshButton = findViewById(R.id.refreshButton);
@@ -403,6 +436,7 @@ public class MajorSortActivity extends AppCompatActivity {
             if (u.getName().equals(name)) return u;
         } return null;
     }
+
 
 
 }
