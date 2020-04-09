@@ -189,7 +189,11 @@ public class MajorSortActivity extends AppCompatActivity {
             Program p = u.getProgram(this.major);
             List<String> programInfo = new ArrayList<>();
             programInfo.add("Program name: \n" + p.getName());
-            programInfo.add("University ranking: \n" + u.getRanking());
+            if (u.getRanking() == Integer.MAX_VALUE) {
+                programInfo.add("University ranking: \n" + "N/A");
+            } else {
+                programInfo.add("University ranking: \n" + u.getRanking());
+            }
             programInfo.add("Admission Average: \n" + p.getAdmission_average()+"%");
             programInfo.add("Domestic Tuition: \n$" + p.getLocal_tuition());
             programInfo.add("International Tuition: \n$" + p.getInternational_tuition());

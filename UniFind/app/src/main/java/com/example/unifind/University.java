@@ -10,7 +10,7 @@ public class University {
     public University(String name) {
         this.name = name;
         this.programs = new ArrayList<Program>();
-        this.ranking = 0; //null
+        this.ranking = Integer.MAX_VALUE; //null
     }
 
     //Getter for name
