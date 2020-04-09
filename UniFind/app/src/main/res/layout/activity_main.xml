@@ -25,12 +25,15 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:text="OR search by MAJOR "
-        android:layout_marginTop="60dp"
+        android:text="search by major"
+        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:drawableRight="@drawable/ic_school_black_24dp"/>
+        android:background="#9BBDE4"
+
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"/>
 
     <ScrollView
         android:id="@+id/scrollView1"

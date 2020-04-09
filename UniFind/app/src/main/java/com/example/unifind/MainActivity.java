@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public void openMajor() {
         Intent intent = new Intent(this, MajorActivity.class);
         startActivity(intent);
+        View v = findViewById(R.id.button);//找到你要设透明背景的layout 的id
+        v.getBackground().setAlpha(100);//0~255透明度值
     }
 
 }
