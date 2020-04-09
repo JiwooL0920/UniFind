@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.io.InputStream;
@@ -28,6 +29,7 @@ import org.w3c.dom.Text;
 
 import java.util.Arrays;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 
 public class MajorSortActivity extends AppCompatActivity {
     public String[] universityFileNames;
@@ -38,6 +40,8 @@ public class MajorSortActivity extends AppCompatActivity {
     private HashMap<String,String> universityNameConversion;
     private String major;
     private int tuitionUpperBound;
+    private boolean coop;
+
 
     //Expandable view
     ExpandableListView expandableListView;
@@ -99,6 +103,7 @@ public class MajorSortActivity extends AppCompatActivity {
         this.rankingList = new HashMap<>();
         this.boolList = new ArrayList<>();
         this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
+        this.coop = false;
 
         //Get Data
         getData();
@@ -117,10 +122,49 @@ public class MajorSortActivity extends AppCompatActivity {
         expandableListView.setAdapter(adaptor);
         getListViewData();
 
-        //Textfield
-        EditText et = findViewById(R.id.tuitionTF);
+        //Search/Sort setting
+        final EditText et = findViewById(R.id.tuitionTF);
+        final Switch coopSwitch = findViewById(R.id.coopSwitch);
 
+        //Refresh Button
+        Button refreshButton = findViewById(R.id.refreshButton);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textFieldString = et.getText().toString();
+                if (isNumeric(textFieldString) || textFieldString.equals("")) {
+                    int textFieldInt;
+                    if (textFieldString.equals("")) {
+                        textFieldInt = Integer.MAX_VALUE;
+                    } else {
+                        textFieldInt = Integer.parseInt(textFieldString);
+                    }
+                    boolean coopSwitchStatus = coopSwitch.isChecked();
+                    resetSetting(coopSwitchStatus,textFieldInt);
+                }
+            }
+        });
 
+    }
+
+    public void resetSetting(boolean coop, int textFieldInput) {
+        this.tuitionUpperBound = textFieldInput;
+        this.coop = coop;
+        expandableListView = findViewById(R.id.activity_major_sort);
+        this.listGroup = new ArrayList<>();
+        this.listItem = new HashMap<>();
+        this.adaptor = new MainAdaptor(this,listGroup,listItem);
+        expandableListView.setAdapter(adaptor);
+        getListViewData();
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
 
 
@@ -140,6 +184,7 @@ public class MajorSortActivity extends AppCompatActivity {
             Program p = u.getProgram(this.major);
             List<String> programInfo = new ArrayList<>();
             programInfo.add("Program name: \n" + p.getName());
+            programInfo.add("University ranking: \n" + u.getRanking());
             programInfo.add("Admission Average: \n" + p.getAdmission_average()+"%");
             programInfo.add("Domestic Tuition: \n$" + p.getLocal_tuition());
             programInfo.add("International Tuition: \n$" + p.getInternational_tuition());
@@ -264,7 +309,7 @@ public class MajorSortActivity extends AppCompatActivity {
         HashMap<String,Integer> programRanking = new HashMap<String,Integer>();
         for (University u : this.universities) {
             Program p = u.getProgram(programName);
-            if (p != null) {
+            if (p != null && p.isCoop() == this.coop && p.getLocal_tuition() <= this.tuitionUpperBound) {
                 int val = 0;
                 switch (category) {
                     case "admission_average":
