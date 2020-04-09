@@ -46,6 +46,7 @@ public class MajorSortActivity extends AppCompatActivity{
     private int tuitionUpperBound;
     private boolean coop;
     private boolean isInternational;
+    private String sortCategory;
 
 
     //Expandable view
@@ -110,13 +111,13 @@ public class MajorSortActivity extends AppCompatActivity{
         this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
         this.coop = false;
         this.isInternational = false;
+        this.sortCategory = "ranking";
 
         //Get Data
         getData();
 
         //Retrieved data (what major) passed from MajorActivity
         this.major = getIntent().getStringExtra("Major");
-        Log.i("myapp",this.major);
         TextView majorNameTextView = findViewById(R.id.majorName);
         majorNameTextView.setText(this.major);
 
@@ -133,33 +134,12 @@ public class MajorSortActivity extends AppCompatActivity{
         final Switch coopSwitch = findViewById(R.id.coopSwitch);
         final Switch internationalSwitch = findViewById(R.id.internationalSwitch);
         final Spinner rankSpinner = findViewById(R.id.rankSpinner);
-        List<String> categories = new ArrayList<>(Arrays.asList("Choose Ranking Option","Ranking","Admission Average","Tuition"));
 
         ArrayAdapter aa = ArrayAdapter.createFromResource(this,R.array.rankingOptions,android.R.layout.simple_spinner_item);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
         rankSpinner.setAdapter(aa);
-        rankSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Choose")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    //show selectedSpinner item
-                    Toast.makeText(parent.getContext(),"Selected"+item, Toast.LENGTH_SHORT).show();
-                    //anything else you want to do
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
 
 
         //Refresh Button
@@ -177,17 +157,34 @@ public class MajorSortActivity extends AppCompatActivity{
                     }
                     boolean coopSwitchStatus = coopSwitch.isChecked();
                     boolean internationalStatus = internationalSwitch.isChecked();
-                    resetSetting(coopSwitchStatus,internationalStatus,textFieldInt);
+                    String sortCategoryRaw = rankSpinner.getSelectedItem().toString();
+                    Log.i("check","raw"+sortCategoryRaw);
+                    String sortCategory = "admission_average";
+                    switch (sortCategoryRaw) {
+                        case "Ranking":
+                            sortCategory = "ranking";
+                            break;
+                        case "Admission Average":
+                            sortCategory = "admission_average";
+                            break;
+                        case "Tuition":
+                            sortCategory = "tuition";
+                            break;
+                    }
+                    resetSetting(coopSwitchStatus,internationalStatus,textFieldInt,sortCategory);
                 }
             }
         });
 
     }
 
-    public void resetSetting(boolean coop, boolean internationalStatus, int textFieldInput) {
+    public void resetSetting(boolean coop, boolean internationalStatus, int textFieldInput, String sortCategory) {
+
         this.tuitionUpperBound = textFieldInput;
         this.coop = coop;
         this.isInternational = internationalStatus;
+        this.sortCategory = sortCategory;
+        Log.i("check",sortCategory);
         expandableListView = findViewById(R.id.activity_major_sort);
         this.listGroup = new ArrayList<>();
         this.listItem = new HashMap<>();
@@ -209,7 +206,12 @@ public class MajorSortActivity extends AppCompatActivity{
     //Get listView
     public void getListViewData() {
         //Get major data
-        University[] sorted = getProgramBasedOnCategory(major,"admission_average");
+        String category = this.sortCategory;
+        if (this.sortCategory.equals("tuition")) {
+            if (!this.isInternational) category = "local_tuition";
+            else category = "international_tuition";
+        }
+        University[] sorted = getProgramBasedOnCategory(major,category);
 
         //Loop through this and make hashmap
         int count = 1;
@@ -365,6 +367,13 @@ public class MajorSortActivity extends AppCompatActivity{
                             val = p.getAdmission_average();
                             break;
                         case "ranking":
+                            val = u.getRanking();
+                            break;
+                        case "local_tuition":
+                            val = p.getLocal_tuition();
+                            break;
+                        case "international_tuition":
+                            val = p.getInternational_tuition();
                             break;
                     }
                     programRanking.put(u.getName(),new Integer(val));
@@ -380,7 +389,19 @@ public class MajorSortActivity extends AppCompatActivity{
             values[i] = Integer.parseInt(valuesInteger[i].toString());
         }
         //sort values and use that index to sort the names
-        String[] resultInString = sortDecreasingOrder(universityNames, values);
+        String[] resultInString = new String[universityNames.length];
+        switch(category) {
+            case "admission_average":
+                resultInString = sortDecreasingOrder(universityNames, values);
+                break;
+            case "ranking":
+            case "local_tuition":
+            case "international_tuition":
+                resultInString = sortIncreasingOrder(universityNames,values);
+                break;
+
+
+        }
         //Change this into array of universities
         University[] result = new University[resultInString.length];
         for (int i = 0; i < result.length; i++) {
@@ -410,6 +431,20 @@ public class MajorSortActivity extends AppCompatActivity{
             sorted = false;
             for (int i = 0; i < values.length - 1; i++) {
                 if (values[i+1] > values[i]) {
+                    exchInt(values,i,i+1);
+                    exchString(universityNames,i,i+1);
+                    sorted = true;
+                }
+            }
+        } return universityNames;
+    }
+
+    public String[] sortIncreasingOrder(String[] universityNames, int[] values) {
+        boolean sorted = true;
+        while (sorted) {
+            sorted = false;
+            for (int i = 0; i < values.length - 1; i++) {
+                if (values[i+1] < values[i]) {
                     exchInt(values,i,i+1);
                     exchString(universityNames,i,i+1);
                     sorted = true;

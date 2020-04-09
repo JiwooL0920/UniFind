@@ -1,7 +1,6 @@
 <resources>
     <string name="rankingOptions">Ranking Options</string>
     <string-array name="rankingOptions">
-        <item>Choose</item>
         <item>Ranking</item>
         <item>Average</item>
         <item>Tuition</item>
