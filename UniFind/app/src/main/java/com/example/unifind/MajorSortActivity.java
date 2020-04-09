@@ -41,6 +41,7 @@ public class MajorSortActivity extends AppCompatActivity {
     private String major;
     private int tuitionUpperBound;
     private boolean coop;
+    private boolean isInternational;
 
 
     //Expandable view
@@ -104,6 +105,7 @@ public class MajorSortActivity extends AppCompatActivity {
         this.boolList = new ArrayList<>();
         this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
         this.coop = false;
+        this.isInternational = false;
 
         //Get Data
         getData();
@@ -125,6 +127,7 @@ public class MajorSortActivity extends AppCompatActivity {
         //Search/Sort setting
         final EditText et = findViewById(R.id.tuitionTF);
         final Switch coopSwitch = findViewById(R.id.coopSwitch);
+        final Switch internationalSwitch = findViewById(R.id.internationalSwitch);
 
         //Refresh Button
         Button refreshButton = findViewById(R.id.refreshButton);
@@ -140,16 +143,18 @@ public class MajorSortActivity extends AppCompatActivity {
                         textFieldInt = Integer.parseInt(textFieldString);
                     }
                     boolean coopSwitchStatus = coopSwitch.isChecked();
-                    resetSetting(coopSwitchStatus,textFieldInt);
+                    boolean internationalStatus = internationalSwitch.isChecked();
+                    resetSetting(coopSwitchStatus,internationalStatus,textFieldInt);
                 }
             }
         });
 
     }
 
-    public void resetSetting(boolean coop, int textFieldInput) {
+    public void resetSetting(boolean coop, boolean internationalStatus, int textFieldInput) {
         this.tuitionUpperBound = textFieldInput;
         this.coop = coop;
+        this.isInternational = internationalStatus;
         expandableListView = findViewById(R.id.activity_major_sort);
         this.listGroup = new ArrayList<>();
         this.listItem = new HashMap<>();
@@ -309,18 +314,25 @@ public class MajorSortActivity extends AppCompatActivity {
         HashMap<String,Integer> programRanking = new HashMap<String,Integer>();
         for (University u : this.universities) {
             Program p = u.getProgram(programName);
-            if (p != null && p.isCoop() == this.coop && p.getLocal_tuition() <= this.tuitionUpperBound) {
-                int val = 0;
-                switch (category) {
-                    case "admission_average":
-                        val = p.getAdmission_average();
-                        break;
-                    case "ranking":
-                        break;
+            if (p != null) {
+                int tuition;
+                if (this.isInternational) {
+                    tuition = p.getInternational_tuition();
+                } else {
+                    tuition = p.getLocal_tuition();
                 }
-                programRanking.put(u.getName(),new Integer(val));
+                if (p.isCoop() == this.coop && tuition <= this.tuitionUpperBound) {
+                    int val = 0;
+                    switch (category) {
+                        case "admission_average":
+                            val = p.getAdmission_average();
+                            break;
+                        case "ranking":
+                            break;
+                    }
+                    programRanking.put(u.getName(),new Integer(val));
+                }
             }
-
         }
         //make hashmap into array [ names ]    [ val ]   at same index
         String[] universityNames = objToString(programRanking.keySet().toArray());

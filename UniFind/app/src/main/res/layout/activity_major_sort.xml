@@ -44,19 +44,30 @@
     </ExpandableListView>
 
     <Switch
+        android:id="@+id/internationalSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="intern\national"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"/>
+
+
+    <Switch
         android:id="@+id/coopSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="coop"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="70dp"
+        android:textSize="15sp"
         android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="100dp"
         android:text="Tuition Upperbound"
         android:textSize="10sp"/>
@@ -73,6 +84,8 @@
         android:inputType="number"
         android:imeOptions="actionDone"
         android:imeActionLabel="OK"/>
+
+
 
 
 </RelativeLayout>
