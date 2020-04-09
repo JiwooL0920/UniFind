@@ -1,11 +1,6 @@
 package com.example.unifind;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,21 +21,14 @@ import java.util.List;
 
 import android.util.Log;
 
-import org.w3c.dom.Text;
-
-import java.util.Arrays;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 public class MajorSortActivity extends AppCompatActivity{
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
     private ArrayList<String> boolList;
-    private String[] categories;
     private HashMap<String,String> universityNameConversion;
     private String major;
     private int tuitionUpperBound;
@@ -48,13 +36,15 @@ public class MajorSortActivity extends AppCompatActivity{
     private boolean isInternational;
     private String sortCategory;
 
+    private ArrayList<University> coopList;
+    private ArrayList<University> supList;
+
 
     //Expandable view
     ExpandableListView expandableListView;
     List<String> listGroup;
     HashMap<String,List<String>> listItem;
     MainAdaptor adaptor;
-
 
 
 
@@ -73,13 +63,6 @@ public class MajorSortActivity extends AppCompatActivity{
                 "queens", "ryerson", "trent",
                 "uoft", "waterloo", "western",
                 "wilfred_laurier", "windsor", "york"};
-
-        this.categories = new String[] {"admission_average",              // 0
-                "local_tuition",                                          // 1
-                "international_tuition",                                  // 2
-                "coop",                                                   // 3
-                "target_enrolment",                                       // 4
-                "supplementary_application"};                             // 5
 
         //University name conversion
         this.universityNameConversion = new HashMap<String,String>();
@@ -113,6 +96,10 @@ public class MajorSortActivity extends AppCompatActivity{
         this.isInternational = false;
         this.sortCategory = "ranking";
 
+
+        //jen
+        this.coopList = new ArrayList<University>();
+        this.supList = new ArrayList<University>();
         //Get Data
         getData();
 
@@ -360,7 +347,10 @@ public class MajorSortActivity extends AppCompatActivity{
                 } else {
                     tuition = p.getLocal_tuition();
                 }
-                if (p.isCoop() == this.coop && tuition <= this.tuitionUpperBound) {
+                boolean test = false;
+                if (this.coop) test = p.isCoop() == this.coop && tuition <= this.tuitionUpperBound;
+                else test = tuition <= this.tuitionUpperBound;
+                if (test) {
                     int val = 0;
                     switch (category) {
                         case "admission_average":
