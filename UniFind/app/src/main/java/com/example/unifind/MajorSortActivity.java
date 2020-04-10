@@ -48,7 +48,10 @@ public class MajorSortActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_sort);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("UniFind");
+        toolbar.setTitleTextColor(0xFFFFFFFF);
         setSupportActionBar(toolbar);
 
         //Initialize field variables

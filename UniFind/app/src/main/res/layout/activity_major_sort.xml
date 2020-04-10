@@ -29,7 +29,8 @@
         android:text="Refresh"
         android:layout_below="@id/toolbar"
         android:id="@+id/refreshButton"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        />
 
 
 
@@ -37,8 +38,14 @@
         android:id="@+id/activity_major_sort"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:layout_below="@id/toolbar">
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/toolbar"
+
+        android:divider="@null"
+
+        android:dividerHeight="1dp"
+
+        >
 
 
     </ExpandableListView>
@@ -50,6 +57,7 @@
         android:text="coop"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:theme="@style/SwitchTheme" />
 
 </RelativeLayout>

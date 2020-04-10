@@ -3,16 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="7dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list_parent"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:background="@color/blue2"
         android:textColor="@color/blue1"
+        android:shadowColor="#BCBCBC"
+        android:shadowRadius="7"
+        android:shadowDx="5"
+        android:shadowDy="-5"
+        android:background="@color/blue2"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft">
 
     </TextView>
