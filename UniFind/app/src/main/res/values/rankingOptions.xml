@@ -1,0 +1,8 @@
+<resources>
+    <string name="rankingOptions">Ranking Options</string>
+    <string-array name="rankingOptions">
+        <item>Ranking</item>
+        <item>Average</item>
+        <item>Tuition</item>
+    </string-array>
+</resources>

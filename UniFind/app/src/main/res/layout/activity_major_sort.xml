@@ -32,13 +32,21 @@
         android:layout_alignParentRight="true"
         />
 
-
+    <Spinner
+        android:id="@+id/rankSpinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="240dp"
+        android:textSize="10sp"
+        />
 
     <ExpandableListView
         android:id="@+id/activity_major_sort"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/toolbar"
 
         android:divider="@null"
@@ -51,13 +59,59 @@
     </ExpandableListView>
 
     <Switch
+        android:id="@+id/internationalSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="105"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="40dp"
+        android:theme="@style/SwitchTheme"
+        android:layout_marginLeft="10dp"/>
+
+
+    <Switch
         android:id="@+id/coopSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="coop"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="10dp"
-        android:theme="@style/SwitchTheme" />
+        android:theme="@style/SwitchTheme"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="100dp"
+        android:text="Tuition Upperbound"
+        android:textSize="10sp"/>
+
+    <EditText
+        android:id="@+id/tuitionTF"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="100dp"
+        android:hint="ex: 25000"
+        android:textSize="15sp"
+        android:inputType="number"
+        android:imeOptions="actionDone"
+        android:imeActionLabel="OK"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="250dp"
+        android:text="Rank Based On:"
+        android:textSize="15sp"/>
+
+
+
 
 </RelativeLayout>

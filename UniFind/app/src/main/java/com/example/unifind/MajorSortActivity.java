@@ -1,16 +1,15 @@
 package com.example.unifind;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.io.InputStream;
@@ -22,25 +21,30 @@ import java.util.List;
 
 import android.util.Log;
 
-import org.w3c.dom.Text;
+import android.widget.Button;
+import android.widget.Spinner;
 
-import java.util.Arrays;
-
-public class MajorSortActivity extends AppCompatActivity {
+public class MajorSortActivity extends AppCompatActivity{
     public String[] universityFileNames;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
     private ArrayList<String> boolList;
-    private String[] categories;
     private HashMap<String,String> universityNameConversion;
     private String major;
+    private int tuitionUpperBound;
+    private boolean coop;
+    private boolean isInternational;
+    private String sortCategory;
+
+    private ArrayList<University> coopList;
+    private ArrayList<University> supList;
+
 
     //Expandable view
     ExpandableListView expandableListView;
     List<String> listGroup;
     HashMap<String,List<String>> listItem;
     MainAdaptor adaptor;
-
 
 
 
@@ -62,13 +66,6 @@ public class MajorSortActivity extends AppCompatActivity {
                 "queens", "ryerson", "trent",
                 "uoft", "waterloo", "western",
                 "wilfred_laurier", "windsor", "york"};
-
-        this.categories = new String[] {"admission_average",              // 0
-                "local_tuition",                                          // 1
-                "international_tuition",                                  // 2
-                "coop",                                                   // 3
-                "target_enrolment",                                       // 4
-                "supplementary_application"};                             // 5
 
         //University name conversion
         this.universityNameConversion = new HashMap<String,String>();
@@ -97,13 +94,20 @@ public class MajorSortActivity extends AppCompatActivity {
         this.universities = new ArrayList<>();
         this.rankingList = new HashMap<>();
         this.boolList = new ArrayList<>();
+        this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
+        this.coop = false;
+        this.isInternational = false;
+        this.sortCategory = "ranking";
 
+
+        //jen
+        this.coopList = new ArrayList<University>();
+        this.supList = new ArrayList<University>();
         //Get Data
         getData();
 
         //Retrieved data (what major) passed from MajorActivity
         this.major = getIntent().getStringExtra("Major");
-        Log.i("myapp",this.major);
         TextView majorNameTextView = findViewById(R.id.majorName);
         majorNameTextView.setText(this.major);
 
@@ -115,12 +119,89 @@ public class MajorSortActivity extends AppCompatActivity {
         expandableListView.setAdapter(adaptor);
         getListViewData();
 
+        //Search/Sort setting
+        final EditText et = findViewById(R.id.tuitionTF);
+        final Switch coopSwitch = findViewById(R.id.coopSwitch);
+        final Switch internationalSwitch = findViewById(R.id.internationalSwitch);
+        final Spinner rankSpinner = findViewById(R.id.rankSpinner);
+
+        ArrayAdapter aa = ArrayAdapter.createFromResource(this,R.array.rankingOptions,android.R.layout.simple_spinner_item);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        rankSpinner.setAdapter(aa);
+
+
+        //Refresh Button
+        Button refreshButton = findViewById(R.id.refreshButton);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textFieldString = et.getText().toString();
+                if (isNumeric(textFieldString) || textFieldString.equals("")) {
+                    int textFieldInt;
+                    if (textFieldString.equals("")) {
+                        textFieldInt = Integer.MAX_VALUE;
+                    } else {
+                        textFieldInt = Integer.parseInt(textFieldString);
+                    }
+                    boolean coopSwitchStatus = coopSwitch.isChecked();
+                    boolean internationalStatus = internationalSwitch.isChecked();
+                    String sortCategoryRaw = rankSpinner.getSelectedItem().toString();
+                    Log.i("check","raw"+sortCategoryRaw);
+                    String sortCategory = "admission_average";
+                    switch (sortCategoryRaw) {
+                        case "Ranking":
+                            sortCategory = "ranking";
+                            break;
+                        case "Admission Average":
+                            sortCategory = "admission_average";
+                            break;
+                        case "Tuition":
+                            sortCategory = "tuition";
+                            break;
+                    }
+                    resetSetting(coopSwitchStatus,internationalStatus,textFieldInt,sortCategory);
+                }
+            }
+        });
+
     }
+
+    public void resetSetting(boolean coop, boolean internationalStatus, int textFieldInput, String sortCategory) {
+
+        this.tuitionUpperBound = textFieldInput;
+        this.coop = coop;
+        this.isInternational = internationalStatus;
+        this.sortCategory = sortCategory;
+        Log.i("check",sortCategory);
+        expandableListView = findViewById(R.id.activity_major_sort);
+        this.listGroup = new ArrayList<>();
+        this.listItem = new HashMap<>();
+        this.adaptor = new MainAdaptor(this,listGroup,listItem);
+        expandableListView.setAdapter(adaptor);
+        getListViewData();
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+
 
     //Get listView
     public void getListViewData() {
         //Get major data
-        University[] sorted = getProgramBasedOnCategory(major,"admission_average");
+        String category = this.sortCategory;
+        if (this.sortCategory.equals("tuition")) {
+            if (!this.isInternational) category = "local_tuition";
+            else category = "international_tuition";
+        }
+        University[] sorted = getProgramBasedOnCategory(major,category);
 
         //Loop through this and make hashmap
         int count = 1;
@@ -133,6 +214,11 @@ public class MajorSortActivity extends AppCompatActivity {
             Program p = u.getProgram(this.major);
             List<String> programInfo = new ArrayList<>();
             programInfo.add("Program name: \n" + p.getName());
+            if (u.getRanking() == Integer.MAX_VALUE) {
+                programInfo.add("University ranking: \n" + "N/A");
+            } else {
+                programInfo.add("University ranking: \n" + u.getRanking());
+            }
             programInfo.add("Admission Average: \n" + p.getAdmission_average()+"%");
             programInfo.add("Domestic Tuition: \n$" + p.getLocal_tuition());
             programInfo.add("International Tuition: \n$" + p.getInternational_tuition());
@@ -142,11 +228,6 @@ public class MajorSortActivity extends AppCompatActivity {
             programInfo.add("Supplementary Application: \n" + booleanToString(p.isSupplementary_applicatoin()));
             listItem.put(count+") "+universityName,programInfo);
             count++;
-        }
-
-        //test listgroup
-        for (String s : listGroup) {
-            Log.i("myapp",s);
         }
 
         this.adaptor.notifyDataSetChanged();
@@ -263,17 +344,34 @@ public class MajorSortActivity extends AppCompatActivity {
         for (University u : this.universities) {
             Program p = u.getProgram(programName);
             if (p != null) {
-                int val = 0;
-                switch (category) {
-                    case "admission_average":
-                        val = p.getAdmission_average();
-                        break;
-                    case "ranking":
-                        break;
+                int tuition;
+                if (this.isInternational) {
+                    tuition = p.getInternational_tuition();
+                } else {
+                    tuition = p.getLocal_tuition();
                 }
-                programRanking.put(u.getName(),new Integer(val));
+                boolean test = false;
+                if (this.coop) test = p.isCoop() == this.coop && tuition <= this.tuitionUpperBound;
+                else test = tuition <= this.tuitionUpperBound;
+                if (test) {
+                    int val = 0;
+                    switch (category) {
+                        case "admission_average":
+                            val = p.getAdmission_average();
+                            break;
+                        case "ranking":
+                            val = u.getRanking();
+                            break;
+                        case "local_tuition":
+                            val = p.getLocal_tuition();
+                            break;
+                        case "international_tuition":
+                            val = p.getInternational_tuition();
+                            break;
+                    }
+                    programRanking.put(u.getName(),new Integer(val));
+                }
             }
-
         }
         //make hashmap into array [ names ]    [ val ]   at same index
         String[] universityNames = objToString(programRanking.keySet().toArray());
@@ -284,7 +382,19 @@ public class MajorSortActivity extends AppCompatActivity {
             values[i] = Integer.parseInt(valuesInteger[i].toString());
         }
         //sort values and use that index to sort the names
-        String[] resultInString = sortDecreasingOrder(universityNames, values);
+        String[] resultInString = new String[universityNames.length];
+        switch(category) {
+            case "admission_average":
+                resultInString = sortDecreasingOrder(universityNames, values);
+                break;
+            case "ranking":
+            case "local_tuition":
+            case "international_tuition":
+                resultInString = sortIncreasingOrder(universityNames,values);
+                break;
+
+
+        }
         //Change this into array of universities
         University[] result = new University[resultInString.length];
         for (int i = 0; i < result.length; i++) {
@@ -322,6 +432,20 @@ public class MajorSortActivity extends AppCompatActivity {
         } return universityNames;
     }
 
+    public String[] sortIncreasingOrder(String[] universityNames, int[] values) {
+        boolean sorted = true;
+        while (sorted) {
+            sorted = false;
+            for (int i = 0; i < values.length - 1; i++) {
+                if (values[i+1] < values[i]) {
+                    exchInt(values,i,i+1);
+                    exchString(universityNames,i,i+1);
+                    sorted = true;
+                }
+            }
+        } return universityNames;
+    }
+
     public void exchString(String[] a, int i, int j) {
         String m1 = a[i];
         a[i] = a[j];
@@ -341,10 +465,6 @@ public class MajorSortActivity extends AppCompatActivity {
         } return null;
     }
 
-    public void openMajor() {
-        Intent intent = new Intent(this, MajorActivity.class);
-        startActivity(intent);
-    }
 
 
 }
