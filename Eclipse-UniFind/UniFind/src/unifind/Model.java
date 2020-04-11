@@ -3,6 +3,7 @@ package unifind;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Model {
@@ -241,7 +242,7 @@ public class Model {
     //Get Data -- originally in MajorSortActivity.java but moved to here for eclipse demonstration purposes
     public void getData() throws Exception {
     	getUniversityData();
-    	getUniversityRanking();
+//    	getUniversityRanking();
     }
     
     public void getUniversityData() throws Exception{
@@ -264,6 +265,7 @@ public class Model {
 		                        yesNoConversion(cells[7]));     //supplementary application
 		                university.addProgram(p);
 					}	
+					universities.add(university);
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -305,6 +307,12 @@ public class Model {
 //            }
 //        }
 //    }
+    
+    public static void main(String[] args) throws Exception {
+    	Model m = new Model(); 
+    	m.getData(); 
+    	System.out.println(m.getUniversities());
+    }
 
 
 
