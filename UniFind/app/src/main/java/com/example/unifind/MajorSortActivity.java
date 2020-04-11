@@ -25,15 +25,12 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class MajorSortActivity extends AppCompatActivity{
-    public String[] universityFileNames; // array of university ungly name
-    private HashMap<String,String> universityNameConversion; // hashmap ugly name and formal name
-    public ArrayList<University> universities; // list of universities with type University
-    private HashMap<String,String> rankingList; // hashmap university and qs ranking
     private String major; // selected major
     private int tuitionUpperBound;
     private boolean coop;
     private boolean isInternational;
     private String sortCategory;
+    private Model model;
 
     //Expandable view
     ExpandableListView expandableListView;
@@ -54,44 +51,13 @@ public class MajorSortActivity extends AppCompatActivity{
         toolbar.setTitleTextColor(0xFFFFFFFF);
         setSupportActionBar(toolbar);
 
-        //Initialize field variables
-        this.universityFileNames = new String[] {"algoma", "brock", "carleton",
-                "guelph", "hearst", "lakehead",
-                "laurentian", "mcmaster", "nipissing",
-                "ocad", "uoit", "ottawa",
-                "queens", "ryerson", "trent",
-                "uoft", "waterloo", "western",
-                "wilfred_laurier", "windsor", "york"};
-        this.universities = new ArrayList<>();
-        this.rankingList = new HashMap<>();
         this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
         this.coop = false;
         this.isInternational = false;
         this.sortCategory = "ranking";
 
-        //University name conversion
-        this.universityNameConversion = new HashMap<String,String>();
-        this.universityNameConversion.put("algoma","Algoma University");
-        this.universityNameConversion.put("brock","Brock University");
-        this.universityNameConversion.put("carleton","Carleton University");
-        this.universityNameConversion.put("guelph","University of Guelph");
-        this.universityNameConversion.put("hearst","Université de Hearst");
-        this.universityNameConversion.put("lakehead","Lakehead University");
-        this.universityNameConversion.put("laurentian","Laurentian University");
-        this.universityNameConversion.put("mcmaster","McMaster University");
-        this.universityNameConversion.put("nipissing","Nipissing University");
-        this.universityNameConversion.put("ocad","OCAD University");
-        this.universityNameConversion.put("uoit","University of Ontario Institute of Technology");
-        this.universityNameConversion.put("ottawa","University of Ottawa");
-        this.universityNameConversion.put("queens","Queen's University");
-        this.universityNameConversion.put("ryerson","Ryerson University");
-        this.universityNameConversion.put("trent","Trent University");
-        this.universityNameConversion.put("uoft","University of Toronto");
-        this.universityNameConversion.put("waterloo","University of Waterloo");
-        this.universityNameConversion.put("western","Western University");
-        this.universityNameConversion.put("wilfred_laurier","Wilfred Laurier University");
-        this.universityNameConversion.put("windsor","University of Windsor");
-        this.universityNameConversion.put("york","York University");
+        this.model = new Model();
+
 
         //Get Data
         getData();
@@ -128,7 +94,7 @@ public class MajorSortActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 String textFieldString = et.getText().toString();
-                if (isNumeric(textFieldString) || textFieldString.equals("")) {
+                if (model.isNumeric(textFieldString) || textFieldString.equals("")) {
                     int textFieldInt;
                     if (textFieldString.equals("")) {
                         textFieldInt = Integer.MAX_VALUE;
@@ -164,7 +130,6 @@ public class MajorSortActivity extends AppCompatActivity{
         this.coop = coop;
         this.isInternational = internationalStatus;
         this.sortCategory = sortCategory;
-        Log.i("check",sortCategory);
         expandableListView = findViewById(R.id.activity_major_sort);
         this.listGroup = new ArrayList<>();
         this.listItem = new HashMap<>();
@@ -173,14 +138,6 @@ public class MajorSortActivity extends AppCompatActivity{
         getListViewData();
     }
 
-    public static boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch(NumberFormatException e){
-            return false;
-        }
-    }
 
 
     //Get listView
@@ -191,13 +148,13 @@ public class MajorSortActivity extends AppCompatActivity{
             if (!this.isInternational) category = "local_tuition";
             else category = "international_tuition";
         }
-        University[] sorted = getProgramBasedOnCategory(major,category);
+        University[] sorted = model.getProgramBasedOnCategory(major,category,this.isInternational,this.coop,this.tuitionUpperBound);
 
         //Loop through this and make hashmap
         int count = 1;
         for (University u : sorted) {
             //Get University name
-            String universityName = this.universityNameConversion.get(u.getName());
+            String universityName = model.getUniversityNameConversion().get(u.getName());
             listGroup.add(count+") "+universityName);
 
             //Get program Info
@@ -212,10 +169,10 @@ public class MajorSortActivity extends AppCompatActivity{
             programInfo.add("Admission Average: \n" + p.getAdmission_average()+"%");
             programInfo.add("Domestic Tuition: \n$" + p.getLocal_tuition());
             programInfo.add("International Tuition: \n$" + p.getInternational_tuition());
-            programInfo.add("Requirements: \n" + removeQuotations(p.getRequirements()));
-            programInfo.add("Coop: \n" + booleanToString(p.isCoop()));
+            programInfo.add("Requirements: \n" + model.removeQuotations(p.getRequirements()));
+            programInfo.add("Coop: \n" + model.booleanToString(p.isCoop()));
             programInfo.add("Target Enrolment: \n" + p.getTarget_enrolment());
-            programInfo.add("Supplementary Application: \n" + booleanToString(p.isSupplementary_applicatoin()));
+            programInfo.add("Supplementary Application: \n" + model.booleanToString(p.isSupplementary_applicatoin()));
             listItem.put(count+") "+universityName,programInfo);
             count++;
         }
@@ -224,12 +181,6 @@ public class MajorSortActivity extends AppCompatActivity{
     }
 
 
-    //Function to remove quotations (for requirement)
-    public String removeQuotations(String s) {
-        if (s.charAt(0) == '"') {
-            return s.substring(1, s.length() - 1);
-        } else return s;
-    }
 
 
     //get data
@@ -241,7 +192,7 @@ public class MajorSortActivity extends AppCompatActivity{
 
     //Get University data from CSV
     public void getUniversityData() {
-        for (String name : this.universityFileNames) {
+        for (String name : model.getUniversityFileNames()) {
             InputStream ins = getResources().openRawResource(getResources().getIdentifier(name,"raw",getPackageName()));
             Scanner scanner = new Scanner(ins);
             String header = scanner.nextLine(); //get rid of header
@@ -255,32 +206,18 @@ public class MajorSortActivity extends AppCompatActivity{
                         Integer.parseInt(cells[2]),     //local tuition
                         Integer.parseInt(cells[3]),     //international tuition
                         cells[4],                       //requirement
-                        yesNoConversion(cells[5]),      //coop
+                        model.yesNoConversion(cells[5]),      //coop
                         cells[6],                       //target enrolment
-                        yesNoConversion(cells[7]));     //supplementary application
+                        model.yesNoConversion(cells[7]));     //supplementary application
                 university.addProgram(p);
             }
-            universities.add(university);
+            model.addUniversity(university);
         }
 
     }
 
-    //Function that changes Yes/No to boolean
-    public boolean yesNoConversion(String s) {
-        switch (s) {
-            case "Yes":
-                return true;
-            case "No":
-                return false;
-            default: // ?
-                return false;
-        }
-    }
 
-    public String booleanToString(boolean b) {
-        if (b) return "Yes";
-        else return "No";
-    }
+
 
     public void getUniversityRanking() {
         InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
@@ -288,17 +225,17 @@ public class MajorSortActivity extends AppCompatActivity{
         scanner.nextLine();
         while (scanner.hasNext()) {
             String[] line = scanner.nextLine().split(",");
-            rankingList.put(line[0], line[1]);
+            model.addRankingList(line[0], line[1]);
         }
         scanner.close();
-        Set<String> uni = rankingList.keySet();
-        for (String u : universityFileNames) {
+        Set<String> uni = model.getRankingList().keySet();
+        for (String u : model.getUniversityFileNames()) {
             for (String U : uni) {
                 if (U.toLowerCase().contains(u)) {
-                    String x = rankingList.get(U);
+                    String x = model.getRankingList().get(U);
                     if (!x.equals("N/A")) {
                         int y = Integer.parseInt(x);
-                        for (University z : universities)
+                        for (University z : model.getUniversities())
                             if (z.getName().equals(u))
                                 z.setRanking(y);
                     }
@@ -306,134 +243,5 @@ public class MajorSortActivity extends AppCompatActivity{
             }
         }
     }
-
-    //Sort universities based on: admission average/tuition
-    public University[] getProgramBasedOnCategory(String programName, String category) {
-        HashMap<String,Integer> programRanking = new HashMap<String,Integer>();
-        for (University u : this.universities) {
-            Program p = u.getProgram(programName);
-            if (p != null) {
-                int tuition;
-                if (this.isInternational) {
-                    tuition = p.getInternational_tuition();
-                } else {
-                    tuition = p.getLocal_tuition();
-                }
-                boolean test = false;
-                if (this.coop) test = p.isCoop() == this.coop && tuition <= this.tuitionUpperBound;
-                else test = tuition <= this.tuitionUpperBound;
-                if (test) {
-                    int val = 0;
-                    switch (category) {
-                        case "admission_average":
-                            val = p.getAdmission_average();
-                            break;
-                        case "ranking":
-                            val = u.getRanking();
-                            break;
-                        case "local_tuition":
-                            val = p.getLocal_tuition();
-                            break;
-                        case "international_tuition":
-                            val = p.getInternational_tuition();
-                            break;
-                    }
-                    programRanking.put(u.getName(),new Integer(val));
-                }
-            }
-        }
-        //make hashmap into array [ names ]    [ val ]   at same index
-        String[] universityNames = objToString(programRanking.keySet().toArray());
-        Integer[] valuesInteger = objToInt(programRanking.values().toArray());
-        //change this to int[]
-        int[] values = new int[valuesInteger.length];
-        for (int i = 0; i < valuesInteger.length; i++) {
-            values[i] = Integer.parseInt(valuesInteger[i].toString());
-        }
-        //sort values and use that index to sort the names
-        String[] resultInString = new String[universityNames.length];
-        switch(category) {
-            case "admission_average":
-                resultInString = sortDecreasingOrder(universityNames, values);
-                break;
-            case "ranking":
-            case "local_tuition":
-            case "international_tuition":
-                resultInString = sortIncreasingOrder(universityNames,values);
-                break;
-
-
-        }
-        //Change this into array of universities
-        University[] result = new University[resultInString.length];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = getUniversity(resultInString[i]);
-        }
-        return result;
-    }
-
-    public String[] objToString(Object[] obj) {
-        String[] result = new String[obj.length];
-        for (int i = 0; i < obj.length; i++) {
-            result[i] = obj[i].toString();
-        } return result;
-    }
-
-    public Integer[] objToInt(Object[] obj) {
-        Integer[] result = new Integer[obj.length];
-        for (int i = 0; i < obj.length; i++) {
-            result[i] = Integer.parseInt(obj[i].toString());
-        } return result;
-    }
-
-    //bubble sort
-    public String[] sortDecreasingOrder(String[] universityNames, int[] values) {
-        boolean sorted = true;
-        while (sorted) {
-            sorted = false;
-            for (int i = 0; i < values.length - 1; i++) {
-                if (values[i+1] > values[i]) {
-                    exchInt(values,i,i+1);
-                    exchString(universityNames,i,i+1);
-                    sorted = true;
-                }
-            }
-        } return universityNames;
-    }
-
-    public String[] sortIncreasingOrder(String[] universityNames, int[] values) {
-        boolean sorted = true;
-        while (sorted) {
-            sorted = false;
-            for (int i = 0; i < values.length - 1; i++) {
-                if (values[i+1] < values[i]) {
-                    exchInt(values,i,i+1);
-                    exchString(universityNames,i,i+1);
-                    sorted = true;
-                }
-            }
-        } return universityNames;
-    }
-
-    public void exchString(String[] a, int i, int j) {
-        String m1 = a[i];
-        a[i] = a[j];
-        a[j] = m1;
-    }
-
-    public void exchInt(int[] a, int i, int j) {
-        int m1 = a[i];
-        a[i] = a[j];
-        a[j] = m1;
-    }
-
-    //Get university given string name
-    public University getUniversity(String name) {
-        for (University u : this.universities) {
-            if (u.getName().equals(name)) return u;
-        } return null;
-    }
-
-
 
 }

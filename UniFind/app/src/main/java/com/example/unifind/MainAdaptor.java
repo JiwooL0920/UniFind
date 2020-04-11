@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.widget.TextView;
 import android.util.Log;
 import java.util.List;
+
 public class MainAdaptor extends BaseExpandableListAdapter {
 
     Context context;
