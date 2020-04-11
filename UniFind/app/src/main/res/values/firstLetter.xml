@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="firstLetter">firstLetter</string>
+    <string-array name="firstLetter">
+        <item>ALL</item>
+        <item>A</item>
+        <item>B</item>
+    </string-array>
+</resources>

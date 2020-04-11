@@ -5,14 +5,49 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 public class MajorActivity extends AppCompatActivity {
+
+//    private String sortCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major);
+
+        final Spinner letterSpinner = findViewById(R.id.firstLetterSpinner);
+
+        ArrayAdapter aA = ArrayAdapter.createFromResource(this, R.array.firstLetter, android.R.layout.simple_spinner_item);
+        aA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        letterSpinner.setAdapter(aA);
+
+//        Button refreshButton = findViewById(R.id.refreshButton);
+//        refreshButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                String sortCategoryRaw = letterSpinner.getSelectedItem().toString();
+//                switch (sortCategoryRaw) {
+//                    case "ALL":
+//                        sortCategory = "*";
+//                        break;
+//                    case "A":
+//                        sortCategory = "A";
+//                        break;
+//                    case "B":
+//                        sortCategory = "B";
+//                        break;
+//                    case "C":
+//                        sortCategory = "C";
+//                        break;
+//                }
+////                resetSetting(sortCategory);
+//
+//            }
+//        });
 
         Button b1 =  (Button) findViewById(R.id.button1);
         b1.setOnClickListener(new View.OnClickListener() {
