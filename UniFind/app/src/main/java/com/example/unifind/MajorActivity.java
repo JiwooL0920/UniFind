@@ -64,7 +64,7 @@ public class MajorActivity extends AppCompatActivity {
         aA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         letterSpinner.setAdapter(aA);
 
-        //
+
         Button refreshButton = findViewById(R.id.refreshButton);
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
