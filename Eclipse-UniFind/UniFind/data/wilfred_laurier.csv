@@ -1,0 +1,76 @@
+Program,Admission_Average,Local_Tuition,International_Tuition,Requirements,Co-op,Target_Enrolloment,Supplementary_Application
+Ancient Studies,72,7000,21434,ENG4U,Yes,N/A,No
+Anthropology,72,7000,21434,ENG4U,Yes,N/A,No
+Applied Water science,82,7000,21434,"MHF4U,SBI4U,SCH4U",Yes,N/A,No
+Archaeology and Heritage Studies,72,7000,21434,ENG4U,Yes,N/A,No
+Biochemistry and Biotechnology,72,7000,21434,ENG4U,No,N/A,No
+Biology,75,7000,21434,"ENG4U,MFH4U,SBI4U,SCH4U",Yes,N/A,No
+Business Administration,75,7000,21434,"ENG4U,MFH4U,SBI4U,SCH4U",Yes,N/A,No
+Business Administration and Computer Science ,87,7000,21434,"ENG4U,MFH4U,SBI4U,SCH4U",Yes,N/A,No
+Business Administration and Financial Mathematics ,95,7000,21434,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Business Administration and Math,92,7000,21434,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Business Technology Management,92,7000,21434,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Chemistry,95,7000,21434,"ENG4U,MCV4U,MHF4U",Yes,N/A,No
+Chemistry and Physics,82,7000,21434,"ENG4U,MCV4U/MFH4U",Yes,N/A,No
+Christian Studies and Global Citizenship,75,7000,21434,"MHF4U,SCH4U",Yes,N/A,No
+Communication Studies,75,7000,21434,"ENG4U,SCH4U,MHF4U,MCV4U",Yes,N/A,No
+Community Health,72,7000,21434,ENG4U,No,N/A,No
+Community Mush,72,7000,21434,ENG4U,Yes,N/A,No
+Computer Science,72,7000,21434,ENG4U,No,N/A,No
+Computer Science (BA in Combination),75,7000,21434,ENG4U,No,N/A,Yes
+Computer Science and Physics,85,7000,21434,"MHF4U,MCV4U/SCH4U/SPH4U",Yes,N/A,No
+Criminology,85,7000,21434,MHF4U,Yes,N/A,No
+Cultural Studies (BA in combination),85,7000,21434,"MHF4U,MCV4U/SCH4U/SPH4U",No,N/A,No
+Data Science,77,7000,21434,ENG4U,No,N/A,No
+Digital Media and Journalism,82,7000,21434,ENG4U,Yes,N/A,No
+Economics,87,7000,21434,"ENG4U, MHF4U, MCV4U",Yes,N/A,No
+Economics and Accountings,84,7000,21434,ENG4U,No,N/A,No
+Economics and Financial Management,87,7000,21434,"ENG4U,MCV4U/MDM4U,MHF4U",Yes,N/A,No
+English (Brantford),87,7000,21434,"ENG4U,MCV4U/MDM4U,MHF4U",Yes,N/A,No
+English (Waterloo),87,7000,21434,"ENG4U,MCV4U/MDM4U,MHF4U",Yes,N/A,No
+Environmental Science,82,7000,21434,ENG4U,No,N/A,No
+Environmental Studies,82,7000,21434,ENG4U,Yes,N/A,No
+Film Studies,85,7000,21434,"ENG4U,SBI4U,SCH4U,MHF4U",Yes,N/A,No
+Financial Mathematics (BA),82,7000,21434,ENG4U,Yes,N/A,No
+Financial Mathematics (BSc),82,7000,21434,ENG4U,Yes,N/A,No
+French,87,7000,21434,"ENG4U, MHF4U, MCV4U",No,N/A,No
+Game Design and Development,87,7000,21434,"ENG4U, MHF4U, MCV4U, SBI4U/SCH4U/SPH4U",Yes,N/A,No
+Geography (BA),82,7000,21434,ENG4U,No,N/A,No
+Geography (BSc),82,7000,21434,ENG4U,No,N/A,No
+Global Studies,82,7000,21434,ENG4U,No,N/A,No
+Health Administration,82,7000,21434,"ENG4U,MHF4U,SBI4U/SCH4U",Yes,N/A,No
+Health Science,82,7000,21434,ENG4U,Yes,N/A,No
+History (Brantford),77,7000,21434,ENG4U,No,N/A,No
+History (Waterloo),95,7000,21434,"ENG4U, MHF4U, SBI4U, SCH4U",Yes,N/A,No
+Honors Science,82,7000,21434,ENG4U,No,N/A,No
+Human Rights and Human Diversity,82,7000,21434,ENG4U,Yes,N/A,No
+Humanities with Leadership Foundations,85,7000,21434,"ENG4U, MHF4U, SBI4U, SCH4U",Yes,N/A,No
+Indigenous Studies,82,7000,21434,ENG4U,No,N/A,No
+International Education Studies,82,7000,21434,ENG4U,No,N/A,No
+Kinesiology,82,7000,21434,ENG4U,No,N/A,No
+Language,82,7000,21434,ENG4U,No,N/A,No
+Law and Society,87,7000,21434,"ENG4U,One Science, One math",Yes,N/A,No
+Law and Arts,82,7000,21434,ENG4U,Yes,N/A,No
+Mathematics (BA),77,7000,21434,ENG4U,No,N/A,No
+Mathematics (BSc),87,7000,21434,ENG4U,No,N/A,No
+Medieval and Medievalism Studies,85,7000,21434,"ENG4U, MHF4U, MCV4U ",Yes,N/A,No
+Music,85,7000,21434,"ENG4U, MHF4U,MCV4U, One of SBI4U/SCH4U/SPH4U",Yes,N/A,No
+North American Studies,82,7000,21434,ENG4U,Yes,N/A,No
+Philosophy,82,7000,21434,ENG4U,No,N/A,Yes
+Physics,82,7000,21434,ENG4U,Yes,N/A,No
+Policing,82,7000,21434,ENG4U,Yes,N/A,No
+Political Science,85,7000,21434,"ENG4U, MHF4U, one of MCV4U/SCH4U/SPH4U",Yes,N/A,No
+Psychology (BA) (Brantford) ,82,7000,21434,ENG4U,No,N/A,No
+Psychology (BA) (Waterloo),82,7000,21434,ENG4U,Yes,N/A,No
+Psychology (BSc) (Waterloo),85,7000,21434,"ENG4U, One math",No,N/A,No
+Psychology and Neuroscience,85,7000,21434,"ENG4U, One math",Yes,N/A,No
+Public Health,85,7000,21434,"ENG4U, MHF4U, SBI4U",Yes,N/A,No
+Religion and Culture,85,7000,21434,"ENG4U, MHF4U, SBI4U ",No,N/A,No
+Social Work,85,7000,21434,"ENG4U, MHF4U, SBI4U, SCH4U ",No,N/A,No
+Sociology,82,7000,21434,ENG4U,Yes,N/A,No
+Spanish,82,7000,21434,ENG4U,No,N/A,No
+User Experience Design,82,7000,21434,ENG4U,Yes,N/A,No
+Women and Gender Studies,82,7000,21434,ENG4U,Yes,N/A,No
+Youth and Children,85,7000,21434,ENG4U,Yes,N/A,No
+,82,7000,21434,ENG4U,Yes,N/A,No
+,82,7000,21434,ENG4U,No,N/A,No
