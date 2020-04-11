@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /* Method openMajor is used to open an activity. In activity_main.xml, when button "Search By Major" is clicked,
+     * this method is called to open activity_major.
+     */
     public void openMajor() {
         Intent intent = new Intent(this, MajorActivity.class);
         startActivity(intent);

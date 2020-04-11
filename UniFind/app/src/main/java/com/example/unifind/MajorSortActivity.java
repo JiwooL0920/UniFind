@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -27,7 +26,6 @@ import android.widget.Spinner;
 
 public class MajorSortActivity extends AppCompatActivity{
     public String[] universityFileNames;
-    public Integer[] uniLogos;
     public ArrayList<University> universities;
     private HashMap<String,String> rankingList;
     private ArrayList<String> boolList;
@@ -40,8 +38,6 @@ public class MajorSortActivity extends AppCompatActivity{
 
     private ArrayList<University> coopList;
     private ArrayList<University> supList;
-
-
 
 
     //Expandable view
@@ -70,13 +66,6 @@ public class MajorSortActivity extends AppCompatActivity{
                 "queens", "ryerson", "trent",
                 "uoft", "waterloo", "western",
                 "wilfred_laurier", "windsor", "york"};
-        this.uniLogos = new Integer[] {R.drawable.algoma_logo,R.drawable.brock_logo,R.drawable.carleton_logo,
-                R.drawable.guelph_logo,R.drawable.hearst_logo,R.drawable.lakehead_logo,R.drawable.laurentian_logo,
-                R.drawable.mcmaster_logo,R.drawable.nipissing_logo,R.drawable.ocad_logo,R.drawable.ottawa_logo,
-                R.drawable.queens_logo,R.drawable.ryerson_logo,R.drawable.trent_logo,R.drawable.uoft_logo,
-                R.drawable.waterloo_logo,R.drawable.western_logo,R.drawable.wilfred_laurier_logo,R.drawable.windsor_logo,
-                R.drawable.york_logo};
-
 
         //University name conversion
         this.universityNameConversion = new HashMap<String,String>();

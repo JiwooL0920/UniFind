@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 
@@ -75,6 +74,7 @@ public class MajorActivity extends AppCompatActivity {
 
         final Spinner letterSpinner = findViewById(R.id.firstLetterSpinner);
         this.sortCategory="ALL";
+
 
 
         ArrayAdapter aA = ArrayAdapter.createFromResource(this, R.array.firstLetter, android.R.layout.simple_spinner_item);

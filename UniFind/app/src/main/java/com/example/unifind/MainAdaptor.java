@@ -15,7 +15,6 @@ public class MainAdaptor extends BaseExpandableListAdapter {
     Context context;
     List<String> listGroup;
     HashMap<String,List<String>> listItem;
-    Integer[] listGroupLogos;
 
     public MainAdaptor(Context context, List<String> listGroup, HashMap<String,List<String>> listItem) {
         this.context = context;

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MajorSortActivity"
-    android:background="#e1f2fb">
+    tools:context=".MajorSortActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,7 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Major"
-        android:textAllCaps="true"
         android:layout_centerHorizontal="true"
         android:textSize="25dp"
         android:layout_marginTop="10dp"

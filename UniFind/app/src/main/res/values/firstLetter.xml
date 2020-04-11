@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-<<<<<<< HEAD
-    <string name="firstLetter">firstLetter</string>
-    <string-array name="firstLetter">
-        <item>ALL</item>
-        <item>A</item>
-        <item>B</item>
-    </string-array>
-=======
 <string name="firstLetter">firstLetter</string>
 <string-array name="firstLetter">
     <item>ALL</item>
@@ -34,5 +26,4 @@
 
 
 </string-array>
->>>>>>> 9f1ebc036dd10a3fd76e16a1c56d71949e1a3dfd
 </resources>
