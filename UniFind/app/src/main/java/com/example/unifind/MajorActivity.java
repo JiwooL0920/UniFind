@@ -15,54 +15,38 @@ import java.util.ArrayList;
 
 public class MajorActivity extends AppCompatActivity {
 
-    private ArrayList<Button> BUTTONS=new ArrayList<>();
     private ArrayList<Integer> buttonid=new ArrayList<>();
 
-
-//    ScrollView scrollView =findViewById(R.id.scrollView1);
-
-    private String sortCategory;
-
-
+    //get the list of button id
     public void getButtonList(){
         int buttonID=R.id.button;
-        BUTTONS.add((Button)findViewById(buttonID));
 
         String b="button";
-//        for (int i = 0; i < 50; i++)
-//        {
-//            String buttonNum=b + Integer.toString(i);
-//            BUTTONS.add(R.id.button);
-//            BUTTONS.add(R.id.buttonNum);
-//        }
         for (int i = 1; i < 51; i++) {
             int id = getResources().getIdentifier("button" + i, "id", getPackageName());
-            BUTTONS.add((Button) findViewById(id));
             buttonid.add(id);
         }
     }
 
-    public void refresh(String sortCategory) {
+    //refresh function for changing letters
+    public void refresh(String sortLetter) {
         getButtonList();
 
+        //loop through the letters in buttonid arraylist
         for (int i : buttonid) {
             Button btn = findViewById(i);
-
             String s=(String) btn.getText().toString();
-            if (sortCategory=="*"){
+            //if choose all make every major visible
+            if (sortLetter=="*"){
                 btn.setVisibility(View.VISIBLE);
             }
-            else if (s.charAt(0)!=(sortCategory.charAt(0))) {
+            //if the first letter not the same set visibility to gone
+            else if (s.charAt(0)!=(sortLetter.charAt(0))) {
                 btn.setVisibility(View.GONE);
-
             } else {
                 btn.setVisibility(View.VISIBLE);
-
             }
-
-
         }
-
     }
 
 
@@ -72,11 +56,10 @@ public class MajorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major);
 
+        //get the spinner by id
         final Spinner letterSpinner = findViewById(R.id.firstLetterSpinner);
-        this.sortCategory="ALL";
 
-
-
+        //set the drop down of the spinner to the firstLetter
         ArrayAdapter aA = ArrayAdapter.createFromResource(this, R.array.firstLetter, android.R.layout.simple_spinner_item);
         aA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         letterSpinner.setAdapter(aA);
@@ -86,16 +69,15 @@ public class MajorActivity extends AppCompatActivity {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sortLetter = letterSpinner.getSelectedItem().toString();
 
-                String sortCategoryRaw = letterSpinner.getSelectedItem().toString();
-
-                switch (sortCategoryRaw) {
+                //if select ALL, make the sortLetter as *
+                switch (sortLetter) {
                     case "ALL":
-                        sortCategoryRaw = "*";
+                        sortLetter = "*";
                         break;
                 }
-                refresh(sortCategoryRaw);
-
+                refresh(sortLetter);
             }
         });
 
