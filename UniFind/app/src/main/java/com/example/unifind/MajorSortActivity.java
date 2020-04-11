@@ -25,20 +25,15 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class MajorSortActivity extends AppCompatActivity{
-    public String[] universityFileNames;
-    public ArrayList<University> universities;
-    private HashMap<String,String> rankingList;
-    private ArrayList<String> boolList;
-    private HashMap<String,String> universityNameConversion;
-    private String major;
+    public String[] universityFileNames; // array of university ungly name
+    private HashMap<String,String> universityNameConversion; // hashmap ugly name and formal name
+    public ArrayList<University> universities; // list of universities with type University
+    private HashMap<String,String> rankingList; // hashmap university and qs ranking
+    private String major; // selected major
     private int tuitionUpperBound;
     private boolean coop;
     private boolean isInternational;
     private String sortCategory;
-
-    private ArrayList<University> coopList;
-    private ArrayList<University> supList;
-
 
     //Expandable view
     ExpandableListView expandableListView;
@@ -53,6 +48,7 @@ public class MajorSortActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_sort);
 
+        // set the toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("UniFind");
         toolbar.setTitleTextColor(0xFFFFFFFF);
@@ -66,6 +62,12 @@ public class MajorSortActivity extends AppCompatActivity{
                 "queens", "ryerson", "trent",
                 "uoft", "waterloo", "western",
                 "wilfred_laurier", "windsor", "york"};
+        this.universities = new ArrayList<>();
+        this.rankingList = new HashMap<>();
+        this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
+        this.coop = false;
+        this.isInternational = false;
+        this.sortCategory = "ranking";
 
         //University name conversion
         this.universityNameConversion = new HashMap<String,String>();
@@ -91,18 +93,6 @@ public class MajorSortActivity extends AppCompatActivity{
         this.universityNameConversion.put("windsor","University of Windsor");
         this.universityNameConversion.put("york","York University");
 
-        this.universities = new ArrayList<>();
-        this.rankingList = new HashMap<>();
-        this.boolList = new ArrayList<>();
-        this.tuitionUpperBound = Integer.MAX_VALUE; //initialize to nothing
-        this.coop = false;
-        this.isInternational = false;
-        this.sortCategory = "ranking";
-
-
-        //jen
-        this.coopList = new ArrayList<University>();
-        this.supList = new ArrayList<University>();
         //Get Data
         getData();
 
@@ -311,27 +301,6 @@ public class MajorSortActivity extends AppCompatActivity{
                         for (University z : universities)
                             if (z.getName().equals(u))
                                 z.setRanking(y);
-                    }
-                }
-            }
-        }
-    }
-
-    public void booleanFilter(String programName, String category) {
-        for (University u : universities) {
-            for (Program p : u.getPrograms()) {
-                if (p.getName().contains(programName)) {
-                    if (category.equals("coop")) {
-                        if (p.isCoop()) {
-                            if (!boolList.contains(u.getName()))
-                                boolList.add(u.getName());
-                        }
-                    }
-                    if (category.equals("supplementary_application")) {
-                        if (p.isSupplementary_applicatoin()) {
-                            if (!boolList.contains(u.getName()))
-                                boolList.add(u.getName());
-                        }
                     }
                 }
             }
