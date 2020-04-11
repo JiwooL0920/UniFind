@@ -4,15 +4,102 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 public class MajorActivity extends AppCompatActivity {
+
+    private ArrayList<Button> BUTTONS=new ArrayList<>();
+    private ArrayList<Integer> buttonid=new ArrayList<>();
+
+
+//    ScrollView scrollView =findViewById(R.id.scrollView1);
+
+    private String sortCategory;
+
+
+    public void getButtonList(){
+        int buttonID=R.id.button;
+        BUTTONS.add((Button)findViewById(buttonID));
+
+        String b="button";
+//        for (int i = 0; i < 50; i++)
+//        {
+//            String buttonNum=b + Integer.toString(i);
+//            BUTTONS.add(R.id.button);
+//            BUTTONS.add(R.id.buttonNum);
+//        }
+        for (int i = 1; i < 51; i++) {
+            int id = getResources().getIdentifier("button" + i, "id", getPackageName());
+            BUTTONS.add((Button) findViewById(id));
+            buttonid.add(id);
+        }
+    }
+
+    public void refresh(String sortCategory) {
+        getButtonList();
+
+        for (int i : buttonid) {
+            Button btn = findViewById(i);
+
+            String s=(String) btn.getText().toString();
+            if (sortCategory=="*"){
+                btn.setVisibility(View.VISIBLE);
+            }
+            else if (s.charAt(0)!=(sortCategory.charAt(0))) {
+                btn.setVisibility(View.GONE);
+
+            } else {
+                btn.setVisibility(View.VISIBLE);
+
+            }
+
+
+        }
+
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major);
+
+        final Spinner letterSpinner = findViewById(R.id.firstLetterSpinner);
+        this.sortCategory="ALL";
+
+
+
+        ArrayAdapter aA = ArrayAdapter.createFromResource(this, R.array.firstLetter, android.R.layout.simple_spinner_item);
+        aA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        letterSpinner.setAdapter(aA);
+
+
+        Button refreshButton = findViewById(R.id.refreshButton);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String sortCategoryRaw = letterSpinner.getSelectedItem().toString();
+
+                switch (sortCategoryRaw) {
+                    case "ALL":
+                        sortCategoryRaw = "*";
+                        break;
+                }
+                refresh(sortCategoryRaw);
+
+            }
+        });
+
+
 
         Button b1 =  (Button) findViewById(R.id.button1);
         b1.setOnClickListener(new View.OnClickListener() {

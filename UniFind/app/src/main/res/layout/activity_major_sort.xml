@@ -24,12 +24,13 @@
         android:id="@+id/majorName"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refresh"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/search_icon"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="350dp"
         android:layout_below="@id/toolbar"
         android:id="@+id/refreshButton"
-        android:layout_alignParentRight="true"
         />
 
     <Spinner
