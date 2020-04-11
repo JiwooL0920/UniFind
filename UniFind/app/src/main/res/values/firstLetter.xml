@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+<<<<<<< HEAD
     <string name="firstLetter">firstLetter</string>
     <string-array name="firstLetter">
         <item>ALL</item>
         <item>A</item>
         <item>B</item>
     </string-array>
+=======
+<string name="firstLetter">firstLetter</string>
+<string-array name="firstLetter">
+    <item>ALL</item>
+    <item>A</item>
+    <item>B</item>
+    <item>C</item>
+    <item>D</item>
+    <item>E</item>
+    <item>F</item>
+    <item>G</item>
+    <item>H</item>
+    <item>I</item>
+    <item>K</item>
+    <item>L</item>
+    <item>M</item>
+    <item>N</item>
+    <item>P</item>
+    <item>S</item>
+    <item>V</item>
+    <item>W</item>
+
+
+
+
+</string-array>
+>>>>>>> 9f1ebc036dd10a3fd76e16a1c56d71949e1a3dfd
 </resources>

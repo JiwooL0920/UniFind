@@ -1,4 +1,4 @@
 package com.example.unifind;
 
-public class ProgramActivity {
+public class UniActivity {
 }
