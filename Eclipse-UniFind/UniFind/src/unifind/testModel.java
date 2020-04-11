@@ -57,6 +57,21 @@ class testModel {
 		assert true;
 	}
 	
+	@Test
+	void customTestCase() {
+		
+	}
+	
+	@Test
+	void customTestCase2() {
+		
+	}
+	
+	@Test
+	void customTestCase3() {
+		
+	}
+	
 
 	
 }
