@@ -1,0 +1,17 @@
+Programs,Admission_Average,Local_Tuition,International_Tuition,Requirements,Co-op,Target_Enrolment,Supplementary_Application
+Arts and Humanities,80,7704,33332,ENG4U,No,N/A,No
+Fine Arts and Studio,80,7704,33332,ENG4U,No,N/A,Yes
+Engineering,85,14048,43702,"ENG4U,MHF4U,MCV4U,SCH4U, SPH4U",Yes,N/A,No
+Health Science,85,7754,33382,"ENG4U, SBI4U And one of: MHF4U, MCV4U, MDM4U",No,N/A,No
+Kinesilogy,85,7754,33382,"ENG4U, SBI4U, SCH4U",No,N/A,No
+Nursing,85,7754,42176,"ENG4U, SBI4U, SCH4U, MCF3M, MCR3U",No,N/A,No
+Media Information and Technology,85,7704,33332,ENG4U,No,N/A,No
+Music (BMUS),80,7754,33382,ENG4U,No,N/A,Yes
+Music (BA),80,7754,33382,ENG4U,No,N/A,Yes
+Music Administrative Studies (BA),80,7754,33382,"ENG4U,MHF4U, MCV4U, MDM4U",No,N/A,Yes
+Medical Science,80,7729,33357,"ENG4U, MCV4U, SBI4U, SCH4U",No,N/A,No
+Science,90,7729,33357,"ENG4U, MCV4U,And two of MHF4U, SBI4U, SCH4U, SPH4U, SES4U, ICS4U",No,N/A,No
+Food and Nutrition,80,7729,33357,"ENG4U, SBI4U, SCH4U, one of MCF3M, MCR3U",No,N/A,No
+Social Science,85,7704,33332,ENG4U,No,N/A,No
+Management and Organizational Studies,85,7704,33332,"ENG4U, Two of MHF4U, MCV4U, MCV4U",No,N/A,No
+Commercial Aviation Management,85,7704,33332,"ENG4U, two of MHF4U, MCV4U, MCV4U",No,N/A,Yes

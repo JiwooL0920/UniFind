@@ -1,13 +1,16 @@
-package com.example.unifind;
+package unifind;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Model {
-    public String[] universityFileNames; // array of university ungly name
-    private HashMap<String,String> universityNameConversion; // hashmap ugly name and formal name
-    public ArrayList<University> universities; // list of universities with type University
-    private HashMap<String,String> rankingList; // hashmap university and qs ranking
+    private String[] universityFileNames;
+    private HashMap<String,String> universityNameConversion;
+    private ArrayList<University> universities;
+    private HashMap<String,String> rankingList;
+    private ArrayList<String> boolList;
 
     public Model() {
         this.universityFileNames = new String[] {"algoma", "brock", "carleton",
@@ -43,6 +46,7 @@ public class Model {
 
         this.universities = new ArrayList<>();
         this.rankingList = new HashMap<>();
+        this.boolList = new ArrayList<>();
     }
 
     public static boolean isNumeric(String str) {
@@ -232,6 +236,75 @@ public class Model {
         } return null;
     }
 
+
+    
+    //Get Data -- originally in MajorSortActivity.java but moved to here for eclipse demonstration purposes
+    public void getData() throws Exception {
+    	getUniversityData();
+    	getUniversityRanking();
+    }
+    
+    public void getUniversityData() throws Exception{
+		try {
+				for (String name : universityFileNames) {
+					BufferedReader csvReader = new BufferedReader(new FileReader("data/"+name+".csv"));
+					String currentLine = csvReader.readLine(); //start from non-header
+					currentLine = csvReader.readLine();
+					University university = new University(name);
+					while (currentLine != null) {
+						String[] cells = currentLine.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+						currentLine = csvReader.readLine();
+		                Program p = new Program(cells[0],                       //name
+		                        Integer.parseInt(cells[1]),                       //Admission Average
+		                        Integer.parseInt(cells[2]),     //local tuition
+		                        Integer.parseInt(cells[3]),     //international tuition
+		                        cells[4],                       //requirement
+		                        yesNoConversion(cells[5]),      //coop
+		                        cells[6],                       //target enrolment
+		                        yesNoConversion(cells[7]));     //supplementary application
+		                university.addProgram(p);
+					}	
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+    //change this! 
+    public void getUniversityRanking() throws Exception{
+    	try {
+    		
+    	} catch (Exception e) {
+    		
+    	}
+    }
+    
+    
+// [original code]
+//    public void getUniversityRanking() {
+//        InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
+//        Scanner scanner = new Scanner(ins);
+//        scanner.nextLine();
+//        while (scanner.hasNext()) {
+//            String[] line = scanner.nextLine().split(",");
+//            model.addRankingList(line[0], line[1]);
+//        }
+//        scanner.close();
+//        Set<String> uni = model.getRankingList().keySet();
+//        for (String u : model.getUniversityFileNames()) {
+//            for (String U : uni) {
+//                if (U.toLowerCase().contains(u)) {
+//                    String x = model.getRankingList().get(U);
+//                    if (!x.equals("N/A")) {
+//                        int y = Integer.parseInt(x);
+//                        for (University z : model.getUniversities())
+//                            if (z.getName().equals(u))
+//                                z.setRanking(y);
+//                    }
+//                }
+//            }
+//        }
+//    }
 
 
 

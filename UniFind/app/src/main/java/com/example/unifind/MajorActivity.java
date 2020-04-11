@@ -82,6 +82,13 @@ public class MajorActivity extends AppCompatActivity {
         });
 
 
+        /**
+         * Below there are 50 buttons that represent 50 majors available in more than one university.
+         * They are displayed in alphabet order. For each button, it has a corresponding openMajorSort
+         * method to open the sorting page. When a button is clicked, the text of that button (program name)
+         * will be transferred to the sorting page as an input. And the content of major_sorting will be
+         * filtered and sorted based on that.
+         */
 
         Button b1 =  (Button) findViewById(R.id.button1);
         b1.setOnClickListener(new View.OnClickListener() {

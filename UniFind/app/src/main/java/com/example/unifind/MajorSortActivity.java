@@ -25,8 +25,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class MajorSortActivity extends AppCompatActivity{
-
-    private String major;
+    private String major; // selected major
     private int tuitionUpperBound;
     private boolean coop;
     private boolean isInternational;
@@ -46,6 +45,7 @@ public class MajorSortActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_sort);
 
+        // set the toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("UniFind");
         toolbar.setTitleTextColor(0xFFFFFFFF);
@@ -57,6 +57,7 @@ public class MajorSortActivity extends AppCompatActivity{
         this.sortCategory = "ranking";
 
         this.model = new Model();
+
 
         //Get Data
         getData();
@@ -242,9 +243,5 @@ public class MajorSortActivity extends AppCompatActivity{
             }
         }
     }
-
-
-
-
 
 }
