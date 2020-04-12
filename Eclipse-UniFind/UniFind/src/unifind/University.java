@@ -28,10 +28,9 @@ public class University {
     //Setter for programs (add a program to arraylist)
     public void addProgram(Program p) { this.programs.add(p); }
 
-//    return program in the arraylist given name
+    // return program in the arraylist given name
     public Program getProgram(String name) {
         for (Program p : this.programs) {
-//            if (p.getName().equals(name)) return p;
             if (p.getName().toLowerCase().contains(name.toLowerCase())) return p;
         } return null;
     }

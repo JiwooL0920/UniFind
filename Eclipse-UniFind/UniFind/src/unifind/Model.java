@@ -1,17 +1,20 @@
 package unifind;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Model {
-    private String[] universityFileNames;
-    private HashMap<String,String> universityNameConversion;
-    private ArrayList<University> universities;
-    private HashMap<String,String> rankingList;
-    private ArrayList<String> boolList;
-
+    public String[] universityFileNames; // array of university ungly name
+    private HashMap<String,String> universityNameConversion; // hashmap ugly name and formal name
+    public ArrayList<University> universities; // list of universities with type University
+    private HashMap<String,String> rankingList; // hashmap university and qs ranking
+    private Model model;
+    
     public Model() {
         this.universityFileNames = new String[] {"algoma", "brock", "carleton",
                 "guelph", "hearst", "lakehead",
@@ -46,7 +49,8 @@ public class Model {
 
         this.universities = new ArrayList<>();
         this.rankingList = new HashMap<>();
-        this.boolList = new ArrayList<>();
+        this.model = new Model();
+
     }
 
     public static boolean isNumeric(String str) {
@@ -270,41 +274,32 @@ public class Model {
 		}
     }
     
-    //change this! 
-    public void getUniversityRanking() throws Exception{
-    	try {
-    		
-    	} catch (Exception e) {
-    		
-    	}
+    
+    
+    public void getUniversityRanking() throws FileNotFoundException {
+		BufferedReader ins = new BufferedReader(new FileReader("data/qs_world_ranking.csv"));
+        Scanner scanner = new Scanner(ins);
+        scanner.nextLine(); // skip first line
+        while (scanner.hasNext()) {
+            String[] line = scanner.nextLine().split(","); // split by comma
+            model.addRankingList(line[0], line[1]); // hashmap university name and qs ranking
+        }
+        scanner.close();
+        Set<String> uni = model.getRankingList().keySet(); // get all the key(formal university name)
+        for (String u : model.getUniversityFileNames()) {
+            for (String U : uni) {
+                if (U.toLowerCase().contains(u)) {
+                    String x = model.getRankingList().get(U);
+                    if (!x.equals("N/A")) {
+                        int y = Integer.parseInt(x); // change type to int
+                        for (University z : model.getUniversities())
+                            if (z.getName().equals(u))
+                                z.setRanking(y); // set ranking
+                    }
+                }
+            }
+        }
     }
-    
-    
-// [original code]
-//    public void getUniversityRanking() {
-//        InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
-//        Scanner scanner = new Scanner(ins);
-//        scanner.nextLine();
-//        while (scanner.hasNext()) {
-//            String[] line = scanner.nextLine().split(",");
-//            model.addRankingList(line[0], line[1]);
-//        }
-//        scanner.close();
-//        Set<String> uni = model.getRankingList().keySet();
-//        for (String u : model.getUniversityFileNames()) {
-//            for (String U : uni) {
-//                if (U.toLowerCase().contains(u)) {
-//                    String x = model.getRankingList().get(U);
-//                    if (!x.equals("N/A")) {
-//                        int y = Integer.parseInt(x);
-//                        for (University z : model.getUniversities())
-//                            if (z.getName().equals(u))
-//                                z.setRanking(y);
-//                    }
-//                }
-//            }
-//        }
-//    }
 
 
 
