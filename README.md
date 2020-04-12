@@ -17,17 +17,19 @@ UniFind is an Android app that implements searching/sorting algorithms to find a
 ## Demo: 
 ![](uniFind.gif)
 
+Also look at ~/cs2xb3-final/Report/Demo/demo.mp4
+
 ## Features:
 **First Page:** Displays information of all universities in Ontario in alphabetical order. If you click on one of them it navigates to that university's official admission website. It also has a button on the bottom to navigate to the next page (MajorActivity.java)
 
 **Second Page:** Has buttons that corresponds to the major the user wants to search/sort for. For example, if user selects "Computer Science" button, the page navigates to the next page and displays the ranking of all universities that have computer science programs. It also has a filter function where you can search for specific button that starts with the desired character. For example, if user selects "C" it will only show buttons that has names that start with a "C".  
 
 **Third Page:** This is the class(page) where algorithms come in to play. In this class, using csv reader methods, we obtain the information from our ~20 csv files from raw directory and organize them into Program/University objects. We save this whole data into ArrayList<University> as a state variable. Upon creation, this page displays the major the user chose in the previous page according to “ranking” in decreasing order. To customize sorting/filtering options, there are the following functionalities:
-1)	105 Switch = turn on to focus on international tuition (when sorting based on tuition or apply max bound on tuition)
-2)	Coop Switch = turn on to filter programs for only programs that have coop 
-3)	Tuition Upperbound Text Field: input the upper bound on tuition of that program (if input is 10000, the app will filter for programs whose tuition (domestic/international depending on 105 switch status) is less than or equal to the input. 
-4)	Rank Based On Spinner: select one of “ranking”, “admission average”, “tuition”. For example, when ranking is chosen, the app will sort the programs depending on the university’s world ranking, in increasing order. For admission average, it will sort in decreasing order, and for tuition, it will sort in increasing order
-5)	Refresh button – the changes made by the above functionalities will hold effect only after the refresh button is pressed. When it’s pressed, the app will filter/sort through the programs again and generate a new list view that corresponds to the filter/sorting result
+**1)	105 Switch** = turn on to focus on international tuition (when sorting based on tuition or apply max bound on tuition)
+**2)	Coop Switch** = turn on to filter programs for only programs that have coop 
+**3)	Tuition Upperbound Text Field:** input the upper bound on tuition of that program (if input is 10000, the app will filter for programs whose tuition (domestic/international depending on 105 switch status) is less than or equal to the input. 
+**4)	Rank Based On Spinner:** select one of “ranking”, “admission average”, “tuition”. For example, when ranking is chosen, the app will sort the programs depending on the university’s world ranking, in increasing order. For admission average, it will sort in decreasing order, and for tuition, it will sort in increasing order
+**5)	Refresh button** – the changes made by the above functionalities will hold effect only after the refresh button is pressed. When it’s pressed, the app will filter/sort through the programs again and generate a new list view that corresponds to the filter/sorting result
 
 ## Prerequisites/How to Run this Project:
 **1. Android Studio** - run the android app with full functionalities. Import the Android Project ~/cs2xb3-final/UniFind on Android Studio and run simulator.   

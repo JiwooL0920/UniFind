@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.14)  10 APR 2020 02:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.14)  12 APR 2020 01:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -27,7 +27,8 @@ File: size10.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
-) (./log.aux)
+)
+No file log.aux.
 \openout1 = `log.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -50,7 +51,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 10.
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
 6.
-
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -61,13 +61,13 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./
 log.aux) ) 
 Here is how much of TeX's memory you used:
- 279 strings out of 492163
- 3224 string characters out of 6125306
+ 277 strings out of 492163
+ 3208 string characters out of 6125306
  65059 words of memory out of 5000000
  4715 multiletter control sequences out of 15000+600000
  7588 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 25i,6n,20p,288b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,6n,20p,294b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
@@ -75,7 +75,7 @@ x12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 >
-Output written on log.pdf (2 pages, 75192 bytes).
+Output written on log.pdf (2 pages, 75701 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream
