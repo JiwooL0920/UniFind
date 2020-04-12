@@ -2,7 +2,8 @@
 
 ## Overview: 
 **Course:** COMPSCI 2XB3  
-**Lab Section:** L02
+**Lab Section:** L02  
+**Group:** 3
 
 **Team Members:**   
 **1) Jiwoo Lee** - leej229 - 400182530  
