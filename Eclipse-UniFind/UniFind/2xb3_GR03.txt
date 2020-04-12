@@ -21,7 +21,8 @@ Designed and implemented UI for first and second pages (MainActivity.java, Major
 Cynthia Liu	
 liuy363	
 400172720	
-UI Designer	Designed and implemented UI for first and second pages (MainActivity.java, MajorActivity.java)
+UI Designer	
+Designed and implemented UI for first and second pages (MainActivity.java, MajorActivity.java)
 
 Jeehyun Yoon	
 yoonj13		
