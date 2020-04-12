@@ -312,21 +312,18 @@ public class Model {
     	    }
     
     public static boolean validMajor(String userInput) {
-    	String s = "12345";
-    	return s.contains(userInput);
+    	return (userInput.equals("1") || userInput.equals("2") || userInput.equals("3") || 
+    			userInput.equals("4") || userInput.equals("5"));
     }
-=======
->>>>>>> 3f469966e3b4cfffe0910f92b0a5a889b86b9f48
+
     
     public static boolean validCategory(String userInput) {
-    	String s = "123";
-    	return s.contains(userInput);
+    	return (userInput.equals("1") || userInput.equals("2") || userInput.equals("3"));
     }
     
-<<<<<<< HEAD
+
     public static boolean validYesNo(String userInput) {
-    	String s = "12";
-    	return s.contains(userInput);
+    	return (userInput.equals("1") || userInput.equals("2"));
     }
     
     public static void main(String[] args) throws Exception {
