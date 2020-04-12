@@ -31,7 +31,7 @@ UniFind is an Android app that implements searching/sorting algorithms to find a
 
 ## Prerequisites/How to Run this Project:
 **1. Android Studio** - run the android app with full functionalities. Import the Android Project ~/cs2xb3-final/UniFind on Android Studio and run simulator.   
-**2. (OR) Eclipse**- run the terminal app that demonstrates the core functionalities of the app with limited choices. Import the Eclipse Project ~/cs2xb3-final/Eclipse-UniFind and run Model.java   
+**2. (OR) Eclipse**- run the terminal app that demonstrates the core functionalities of the app with limited choices. Unzip the file and Import the Eclipse Project ~/cs2xb3-final/2XB3GR03FinalProject
 
 
 
