@@ -53,6 +53,7 @@ public class Model {
 
     }
 
+    // check if the string contains only numbers
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
@@ -62,26 +63,32 @@ public class Model {
         }
     }
 
+    // getter for UniversityFileNames
     public String[] getUniversityFileNames() {
         return this.universityFileNames;
     }
 
+    //  getter for UniversityNameConversion
     public HashMap<String,String> getUniversityNameConversion() {
         return this.universityNameConversion;
     }
 
+    // getter for Universities
     public ArrayList<University> getUniversities() {
         return this.universities;
     }
 
+    // add university
     public void addUniversity(University u) {
         this.universities.add(u);
     }
 
+    // getter for ranking of university
     public HashMap<String,String> getRankingList() {
         return this.rankingList;
     }
 
+    // add hashmap university and ranking
     public void addRankingList(String uniName, String ranking) {
         this.rankingList.put(uniName,ranking);
     }
@@ -117,8 +124,10 @@ public class Model {
             Program p = u.getProgram(programName);
             if (p != null) {
                 int tuition;
+                // Switch 105 on
                 if (isInternational) {
                     tuition = p.getInternational_tuition();
+                    // Switch 105 off
                 } else {
                     tuition = p.getLocal_tuition();
                 }
