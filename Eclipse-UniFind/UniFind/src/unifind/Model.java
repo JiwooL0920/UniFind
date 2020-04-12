@@ -10,12 +10,12 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Model {
-    private String[] universityFileNames;
-    private HashMap<String,String> universityNameConversion;
-    private ArrayList<University> universities;
-    private HashMap<String,String> rankingList;
-    private ArrayList<String> boolList;
-
+    public String[] universityFileNames; // array of university ungly name
+    private HashMap<String,String> universityNameConversion; // hashmap ugly name and formal name
+    public ArrayList<University> universities; // list of universities with type University
+    private HashMap<String,String> rankingList; // hashmap university and qs ranking
+    private Model model;
+    
     public Model() {
         this.universityFileNames = new String[] {"algoma", "brock", "carleton",
                 "guelph", "hearst", "lakehead",
@@ -50,9 +50,11 @@ public class Model {
 
         this.universities = new ArrayList<>();
         this.rankingList = new HashMap<>();
-        this.boolList = new ArrayList<>();
+        this.model = new Model();
+
     }
 
+    // check if the string contains only numbers
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
@@ -62,26 +64,32 @@ public class Model {
         }
     }
 
+    // getter for UniversityFileNames
     public String[] getUniversityFileNames() {
         return this.universityFileNames;
     }
 
+    //  getter for UniversityNameConversion
     public HashMap<String,String> getUniversityNameConversion() {
         return this.universityNameConversion;
     }
 
+    // getter for Universities
     public ArrayList<University> getUniversities() {
         return this.universities;
     }
 
+    // add university
     public void addUniversity(University u) {
         this.universities.add(u);
     }
 
+    // getter for ranking of university
     public HashMap<String,String> getRankingList() {
         return this.rankingList;
     }
 
+    // add hashmap university and ranking
     public void addRankingList(String uniName, String ranking) {
         this.rankingList.put(uniName,ranking);
     }
@@ -117,8 +125,10 @@ public class Model {
             Program p = u.getProgram(programName);
             if (p != null) {
                 int tuition;
+                // Switch 105 on
                 if (isInternational) {
                     tuition = p.getInternational_tuition();
+                    // Switch 105 off
                 } else {
                     tuition = p.getLocal_tuition();
                 }
@@ -275,6 +285,7 @@ public class Model {
 		}
     }
     
+<<<<<<< HEAD
     public void getUniversityRanking() throws FileNotFoundException {
     	  BufferedReader ins = new BufferedReader(new FileReader("data/qs_world_ranking.csv"));
     	        Scanner scanner = new Scanner(ins);
@@ -304,12 +315,15 @@ public class Model {
     	String s = "12345";
     	return s.contains(userInput);
     }
+=======
+>>>>>>> 3f469966e3b4cfffe0910f92b0a5a889b86b9f48
     
     public static boolean validCategory(String userInput) {
     	String s = "123";
     	return s.contains(userInput);
     }
     
+<<<<<<< HEAD
     public static boolean validYesNo(String userInput) {
     	String s = "12";
     	return s.contains(userInput);
@@ -488,6 +502,31 @@ public class Model {
     	
     	
     	
+=======
+    public void getUniversityRanking() throws FileNotFoundException {
+		BufferedReader ins = new BufferedReader(new FileReader("data/qs_world_ranking.csv"));
+        Scanner scanner = new Scanner(ins);
+        scanner.nextLine(); // skip first line
+        while (scanner.hasNext()) {
+            String[] line = scanner.nextLine().split(","); // split by comma
+            model.addRankingList(line[0], line[1]); // hashmap university name and qs ranking
+        }
+        scanner.close();
+        Set<String> uni = model.getRankingList().keySet(); // get all the key(formal university name)
+        for (String u : model.getUniversityFileNames()) {
+            for (String U : uni) {
+                if (U.toLowerCase().contains(u)) {
+                    String x = model.getRankingList().get(U);
+                    if (!x.equals("N/A")) {
+                        int y = Integer.parseInt(x); // change type to int
+                        for (University z : model.getUniversities())
+                            if (z.getName().equals(u))
+                                z.setRanking(y); // set ranking
+                    }
+                }
+            }
+        }
+>>>>>>> 3f469966e3b4cfffe0910f92b0a5a889b86b9f48
     }
 
 
