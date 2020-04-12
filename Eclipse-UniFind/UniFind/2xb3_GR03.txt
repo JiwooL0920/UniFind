@@ -1,0 +1,31 @@
+COMP SCI 2XB3
+
+Jiwoo Lee	
+leej229	
+400182530	
+Leader	
+Overlook team progress, worked on UI for MajorSortActivity.java, retrieving csv data, and searching/sorting algorithms
+
+Jennie Li 	
+lij416	
+400204743	
+Programmer	
+Retrieve ranking data from csv, sorting/searching for ranking/coop info (MajorSortActivity.java)
+
+Zoe Ning	
+ningh4	
+400183343	
+UI Designer	
+Designed and implemented UI for first and second pages (MainActivity.java, MajorActivity.java)
+
+Cynthia Liu	
+liuy363	
+400172720	
+UI Designer	Designed and implemented UI for first and second pages (MainActivity.java, MajorActivity.java)
+
+Jeehyun Yoon	
+yoonj13		
+Programmer	
+Implemented functionalities for first page (linking to university url), organizing csv data. MainActivity.java
+
+We attest that the work being submitted is our own group work.
