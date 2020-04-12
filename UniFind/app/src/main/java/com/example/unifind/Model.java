@@ -104,6 +104,7 @@ public class Model {
 
     //Sort universities based on: admission average/tuition
     public University[] getProgramBasedOnCategory(String programName, String category, boolean isInternational, boolean coop, int tuitionUpperBound) {
+        System.out.println(category);
         HashMap<String,Integer> programRanking = new HashMap<String,Integer>();
         for (University u : this.universities) {
             Program p = u.getProgram(programName);

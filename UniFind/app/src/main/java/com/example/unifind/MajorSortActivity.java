@@ -34,8 +34,8 @@ public class MajorSortActivity extends AppCompatActivity{
 
     //Expandable view
     ExpandableListView expandableListView;
-    List<String> listGroup;
-    HashMap<String,List<String>> listItem;
+    List<String> listGroup; // list of order + university name
+    HashMap<String,List<String>> listItem; // hashmap university name and detail info
     MainAdaptor adaptor;
 
 
@@ -55,9 +55,7 @@ public class MajorSortActivity extends AppCompatActivity{
         this.coop = false;
         this.isInternational = false;
         this.sortCategory = "ranking";
-
         this.model = new Model();
-
 
         //Get Data
         getData();
@@ -73,6 +71,8 @@ public class MajorSortActivity extends AppCompatActivity{
         this.listItem = new HashMap<>();
         this.adaptor = new MainAdaptor(this,listGroup,listItem);
         expandableListView.setAdapter(adaptor);
+
+        // get ListView
         getListViewData();
 
         //Search/Sort setting
@@ -84,9 +84,7 @@ public class MajorSortActivity extends AppCompatActivity{
         ArrayAdapter aa = ArrayAdapter.createFromResource(this,R.array.rankingOptions,android.R.layout.simple_spinner_item);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-
         rankSpinner.setAdapter(aa);
-
 
         //Refresh Button
         Button refreshButton = findViewById(R.id.refreshButton);
@@ -97,14 +95,17 @@ public class MajorSortActivity extends AppCompatActivity{
                 if (model.isNumeric(textFieldString) || textFieldString.equals("")) {
                     int textFieldInt;
                     if (textFieldString.equals("")) {
-                        textFieldInt = Integer.MAX_VALUE;
+                        textFieldInt = Integer.MAX_VALUE; // initialize to nothing
                     } else {
-                        textFieldInt = Integer.parseInt(textFieldString);
+                        textFieldInt = Integer.parseInt(textFieldString); // change type string to int
                     }
-                    boolean coopSwitchStatus = coopSwitch.isChecked();
-                    boolean internationalStatus = internationalSwitch.isChecked();
-                    String sortCategoryRaw = rankSpinner.getSelectedItem().toString();
-                    Log.i("check","raw"+sortCategoryRaw);
+                    boolean coopSwitchStatus = coopSwitch.isChecked(); // check coop on/off
+                    boolean internationalStatus = internationalSwitch.isChecked(); // check 105 on/off
+                    String sortCategoryRaw = rankSpinner.getSelectedItem().toString(); // get the catetory selected in rank Spinner
+
+                    Log.i("check","raw"+sortCategoryRaw); // pass
+
+                    // 4 categories
                     String sortCategory = "admission_average";
                     switch (sortCategoryRaw) {
                         case "Ranking":
@@ -117,6 +118,7 @@ public class MajorSortActivity extends AppCompatActivity{
                             sortCategory = "tuition";
                             break;
                     }
+                    //reset
                     resetSetting(coopSwitchStatus,internationalStatus,textFieldInt,sortCategory);
                 }
             }
@@ -137,8 +139,6 @@ public class MajorSortActivity extends AppCompatActivity{
         expandableListView.setAdapter(adaptor);
         getListViewData();
     }
-
-
 
     //Get listView
     public void getListViewData() {
@@ -180,15 +180,11 @@ public class MajorSortActivity extends AppCompatActivity{
         this.adaptor.notifyDataSetChanged();
     }
 
-
-
-
     //get data
     public void getData() {
         getUniversityData();
         getUniversityRanking();
     }
-
 
     //Get University data from CSV
     public void getUniversityData() {
@@ -200,7 +196,7 @@ public class MajorSortActivity extends AppCompatActivity{
             University university = new University(name);
             while (scanner.hasNextLine()) {
                 String s = scanner.nextLine();
-                String[] cells = s.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+                String[] cells = s.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"); // split by comma outside of quotation marks
                 Program p = new Program(cells[0],                       //name
                         Integer.parseInt(cells[1]),                       //Admission Average
                         Integer.parseInt(cells[2]),     //local tuition
@@ -217,31 +213,28 @@ public class MajorSortActivity extends AppCompatActivity{
     }
 
 
-
-
     public void getUniversityRanking() {
         InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
         Scanner scanner = new Scanner(ins);
-        scanner.nextLine();
+        scanner.nextLine(); // skip first line
         while (scanner.hasNext()) {
-            String[] line = scanner.nextLine().split(",");
-            model.addRankingList(line[0], line[1]);
+            String[] line = scanner.nextLine().split(","); // split by comma
+            model.addRankingList(line[0], line[1]); // hashmap university name and qs ranking
         }
         scanner.close();
-        Set<String> uni = model.getRankingList().keySet();
+        Set<String> uni = model.getRankingList().keySet(); // get all the key(formal university name)
         for (String u : model.getUniversityFileNames()) {
             for (String U : uni) {
                 if (U.toLowerCase().contains(u)) {
                     String x = model.getRankingList().get(U);
                     if (!x.equals("N/A")) {
-                        int y = Integer.parseInt(x);
+                        int y = Integer.parseInt(x); // change type to int
                         for (University z : model.getUniversities())
                             if (z.getName().equals(u))
-                                z.setRanking(y);
+                                z.setRanking(y); // set ranking
                     }
                 }
             }
         }
     }
-
 }

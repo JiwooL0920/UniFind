@@ -1,10 +1,13 @@
 package unifind;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Model {
     private String[] universityFileNames;
@@ -242,7 +245,7 @@ public class Model {
     //Get Data -- originally in MajorSortActivity.java but moved to here for eclipse demonstration purposes
     public void getData() throws Exception {
     	getUniversityData();
-//    	getUniversityRanking();
+    	getUniversityRanking();
     }
     
     public void getUniversityData() throws Exception{
@@ -272,46 +275,219 @@ public class Model {
 		}
     }
     
-    //change this! 
-    public void getUniversityRanking() throws Exception{
-    	try {
-    		
-    	} catch (Exception e) {
-    		
-    	}
+    public void getUniversityRanking() throws FileNotFoundException {
+    	  BufferedReader ins = new BufferedReader(new FileReader("data/qs_world_ranking.csv"));
+    	        Scanner scanner = new Scanner(ins);
+    	        scanner.nextLine(); // skip first line
+    	        while (scanner.hasNext()) {
+    	            String[] line = scanner.nextLine().split(","); // split by comma
+    	            rankingList.put(line[0], line[1]); // hashmap university name and qs ranking
+    	        }
+    	        scanner.close();
+    	        Set<String> uni = this.rankingList.keySet(); // get all the key(formal university name)
+    	        for (String u : this.universityFileNames) {
+    	            for (String U : uni) {
+    	                if (U.toLowerCase().contains(u)) {
+    	                    String x = this.rankingList.get(U);
+    	                    if (!x.equals("N/A")) {
+    	                        int y = Integer.parseInt(x); // change type to int
+    	                        for (University z : this.universities)
+    	                            if (z.getName().equals(u))
+    	                                z.setRanking(y); // set ranking
+    	                    }
+    	                }
+    	            }
+    	        }
+    	    }
+    
+    public static boolean validMajor(String userInput) {
+    	String s = "12345";
+    	return s.contains(userInput);
     }
     
+    public static boolean validCategory(String userInput) {
+    	String s = "123";
+    	return s.contains(userInput);
+    }
     
-// [original code]
-//    public void getUniversityRanking() {
-//        InputStream ins = getResources().openRawResource(getResources().getIdentifier("qs_world_ranking", "raw", getPackageName()));
-//        Scanner scanner = new Scanner(ins);
-//        scanner.nextLine();
-//        while (scanner.hasNext()) {
-//            String[] line = scanner.nextLine().split(",");
-//            model.addRankingList(line[0], line[1]);
-//        }
-//        scanner.close();
-//        Set<String> uni = model.getRankingList().keySet();
-//        for (String u : model.getUniversityFileNames()) {
-//            for (String U : uni) {
-//                if (U.toLowerCase().contains(u)) {
-//                    String x = model.getRankingList().get(U);
-//                    if (!x.equals("N/A")) {
-//                        int y = Integer.parseInt(x);
-//                        for (University z : model.getUniversities())
-//                            if (z.getName().equals(u))
-//                                z.setRanking(y);
-//                    }
-//                }
-//            }
-//        }
-//    }
+    public static boolean validYesNo(String userInput) {
+    	String s = "12";
+    	return s.contains(userInput);
+    }
     
     public static void main(String[] args) throws Exception {
     	Model m = new Model(); 
     	m.getData(); 
-    	System.out.println(m.getUniversities());
+
+
+    	while (true) {
+    		System.out.println("[UniFind Terminal Version - for Test Purposes]");
+        	System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+        	System.out.println("This is a very simple terminal version of our android app for demonstration purposes. \n"
+        			+ "For now, you can choose 5 majors to test how our code works (on android studio there are more selections user can choose from");
+        	System.out.println("Example input:1");
+        	System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+
+        	Scanner scanner = new Scanner(System.in);
+        	
+    		boolean pass1 = false;
+        	String major = null;
+        	while (!pass1) {
+            	System.out.println("[Step 1] Choose major:");
+            	System.out.println("1) Computer Science");
+            	System.out.println("2) Physics");
+            	System.out.println("3) Nursing");
+            	System.out.println("4) Health Science");
+            	System.out.println("5) Engineering");
+            	System.out.print("Input: ");
+            	String in1 = scanner.nextLine();
+            	if (validMajor(in1)) {
+            		switch (in1) {
+            			case "1":
+            				major = "Computer Science";
+            				break;
+            			case "2":
+            				major = "Physics";
+            				break;
+            			case "3":
+            				major = "Nursing";
+            				break;
+            			case "4":
+            				major = "Health Science";
+            				break;
+            			case "5":
+            				major = "Engineering";
+            				break;
+            		}
+            		pass1 = true;
+            		System.out.println("");
+            	} else {
+            		System.out.println("\nInvalid Input. Try again.");
+            	}
+        	}
+        	
+
+        	
+        	boolean pass3 = false;
+        	boolean coop = false; 
+        	while (!pass3) {
+        		System.out.println("[Step 2] Filter for coop? : ");
+        		System.out.println("1) Yes");
+        		System.out.println("2) No");
+        		System.out.print("Input: ");
+        		String in3 = scanner.nextLine();
+        		if (validYesNo(in3)) {
+        			switch(in3) {
+        			case "1":
+        				coop = true;
+        				break;
+        			case "2":
+        				coop = false;
+        				break;
+        			}
+        			pass3 = true;
+        			System.out.println("");
+        		} else {
+        			System.out.println("\nInvalid Input. Try again.");
+        		}
+        	}
+        	
+        	boolean pass4 = false;
+        	boolean international = false;
+        	while (!pass4) {
+        		System.out.println("[Step 3] Are you international student? : ");
+        		System.out.println("1) Yes");
+        		System.out.println("2) No");
+        		System.out.print("Input: ");
+        		String in4 = scanner.nextLine();
+        		if (validYesNo(in4)) {
+        			switch(in4) {
+        			case "1":
+        				international = true;
+        				break;
+        			case "2":
+        				international = false;
+        				break;
+        			}
+        			pass4 = true;
+        			System.out.println("");
+        		} else {
+        			System.out.println("\nInvalid Input. Try again.");
+        		}
+        	}
+        	
+        	boolean pass5 = false;
+        	int tuitionUpperBound = Integer.MAX_VALUE;
+        	while (!pass5) {
+        		System.out.print("[Step 4] Tuition UpperBound: ");
+        		String in5 = scanner.nextLine();
+        		if (isNumeric(in5)) {
+        			tuitionUpperBound = Integer.parseInt(in5);
+        			pass5 = true;
+        			System.out.println("");
+        		} else {
+        			System.out.println("\nInvalid Input. Try again.");
+        		}
+        	}
+        	
+        	boolean pass2 = false;
+        	String category = "";
+        	while(!pass2) {
+        		System.out.println("[Step 4] Choose category:");
+        		System.out.println("1) Ranking");
+        		System.out.println("2) Admission Average");
+        		System.out.println("3) Tuition");
+        		System.out.print("Input: ");
+        		String in2 = scanner.nextLine();
+        		if (validCategory(in2)) {
+        			switch(in2) {
+        				case "1":
+        					category = "ranking";
+        					break;
+        				case "2":
+        					category = "admission_average";
+        					break;
+        				case "3":
+        					if (international) {
+        						category = "international_tuition";
+        					} else {
+        						category = "local_tuition";
+        					}
+        					break;
+        			}
+        			pass2 = true;
+        			System.out.println("");
+        		} else {
+        			System.out.println("\n Invalid Input. Try again.");
+        		}
+        	}
+        	
+        	//print
+        	University[] result = m.getProgramBasedOnCategory(major,category,international,coop,tuitionUpperBound);
+        	int counter = 1; 
+        	System.out.println("\n[RESULT]");
+        	System.out.println("University,Ranking,Program Name,Admission Average,Domestic Tuition,International Tuition,Requirements,Coop,Target Enrolment,Supplementary Application");
+        	for (University u: result) {
+        		Program p = u.getProgram(major);
+        		System.out.print(counter+") ");
+        		System.out.print(u.getName() + ",");
+        		System.out.print(u.getRanking()+",");
+        		System.out.print(p.getName()+ ",");
+        		System.out.print(p.getAdmission_average()+",");
+        		System.out.print(p.getLocal_tuition()+",");
+        		System.out.print(p.getInternational_tuition()+",");
+        		System.out.print(p.getRequirements()+",");
+        		System.out.print(p.isCoop()+",");
+        		System.out.print(p.getTarget_enrolment()+",");
+        		System.out.println(p.isSupplementary_applicatoin());
+        		counter++;
+        		
+        	}
+        	System.out.println("[FINISH]--------------------------------------------------------------------------------------------------------------\n\n\n\n\n");
+    	}
+    	
+    	
+    	
     }
 
 
